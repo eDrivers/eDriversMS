@@ -1,0 +1,694 @@
+---
+title: Next Generation Planning - Structuring and Sharing Environmental Drivers Data for the St. Lawrence
+author: David Beauchesne^1,2,\*^, Rémi Daigle^2^, Steve Vissault^3^, Dominique Gravel^3^, Andréane Bastien^5^, Simon Bélanger^4^, Pascal Bernatchez^4^, Clément Chion^6^, Peter S. Galbraith^7^, Benjamin Halpern^8,9,10^, Camille Lavoie^2^, Christopher W. McKindsey^7^, Alfonso Mucci^11^, Michel Starr^7^, Anne-Sophie Ste-Marie^5^, Philippe Archambault^2^
+date: 2018-11-19
+fontsize: 12pt
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+    fig_width: 3
+  pdf_document:
+    toc: false
+  word_document:
+    toc: false
+header-includes:
+   - \usepackage{lineno}
+   - \linenumbers
+   - \usepackage{listings}
+   - \usepackage[svgnames]{xcolor}
+   # - \usepackage{titling}
+   # - \pretitle{\begin{flushleft}}
+   # - \posttitle{\end{flushleft}}
+relativeurls: true
+bibliography: platformMS.bib
+csl: frontiers.csl
+link-citations: yes
+---
+
+<!-- <style type="text/css">
+/* body{
+  font-size: 12px;
+}
+td {
+  font-size: 8px;
+} */
+h1 {
+  font-size: 38px;
+  color: DarkRed;
+}
+
+Style specs
+Title{
+  font-size: 16
+  font: times new roman
+  align: center
+}
+Headings & subheadings{
+  font-size: 12
+  font: times new roman
+  bold
+  numbered
+}
+Abstract{
+  font-size: 12
+  font: times new roman
+  normal
+}
+Body{
+  font-size: 12
+  font: times new roman
+  single-spaced
+  page numbers
+  line numbers
+}
+
+</style> -->
+
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={fetchDrivers, install_github, getData, kde2d},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+  keywordstyle=\color{blue},
+  commentstyle=\color{DarkGreen},
+}
+
+
+
+
+<!--
+setwd('/users/davidbeauchesne/dropbox/phd/phd_obj1/stressor_spat_dist/platformMS/')
+rmarkdown::render('./platformMS.rmd', 'html_document')
+rmarkdown::render('./platformMSv2.rmd', 'pdf_document')
+rmarkdown::render('./platformMSv2.rmd', 'word_document')
+-->
+
+^1^Institut des sciences de la mer, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
+^2^Québec Océan, Département de biologie, Université Laval, Québec, QC, Canada \newline
+^3^Département de biologie, Université de Sherbrooke, Sherbrooke, QC, Canada \newline
+^4^Département de Biologie, Chimie et Géographie, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
+^5^St. Lawrence Global Observatory, Rimouski, QC, Canada \newline
+^6^Institut des sciences de la forêt tempérée, Université du Québec en Outaouais, Gatineau, QC, Canada \newline
+^7^Fisheries and Oceans Canada, Maurice Lamontagne Institute, Mont-Joli, QC, Canada \newline
+^8^National Center for Ecological Analysis and Synthesis, University of California, Santa Barbara, CA, United States \newline
+^9^Bren School of Environmental Science and Management, University of California, Santa Barbara, CA, United States \newline
+^10^Imperial College London, Ascot, United Kingdom \newline
+^11^Department of Earth & Planetary Sciences, McGill University, Montréal, QC, Canada \newline
+
+
+**Correspondence**: \newline
+David Beauchesne \newline
+david.beauchesne@hotmail.com \newline
+
+**Number of figures**: 3 \newline
+**Number of tables**: 1 \newline
+
+\newpage
+
+
+# Abstract
+200 words
+
+
+**Keywords: open data, St. Lawrence, environmental drivers, holistic, ** up to 8, 5 minimum
+
+# Context
+
+With awareness of human impacts on the oceans increasing globally, there has
+been a growing demand for systematic and large scale environmental management
+schemes, such as ecosystem-based management, systematic conservation planning,
+and strategic environmental assessment [@margules2000; @jones2016]. Beyond
+substantial political and scientific commitment, such initiatives require the
+proper infrastructures and tools allowing for efficient data reporting and
+adaptive, continuous monitoring, all of which hinge on the construction of
+large, holistic datasets.
+
+Gathering environmental data for large scale, systematic initiatives can however
+be a very challenging and time consuming - not to say painful - process. On one
+hand, there is an overwhelming and expanding wealth of data available. Such
+information overload may reduce ability to take decision based on scientific
+information, massive effort duplication, disproportionate appropriation of
+research funds, and it may obscure knowledge gaps amid a sea of information
+[@eppler2004]. On the other hand, crucial data are lacking and remain largely
+unavailable or inaccessible for a variety of reasons, including proprietary
+rights, lack of organizational time, capacity and training, and unwillingness
+to share, curtailing our ability for appropriate decision-making. When coupled
+with political intricacies, such as multi-jurisdictional management, the data
+gathering process can quickly become intractable.
+
+Additionally, the current digital infrastructure is highly
+decentralized and the practices are heterogeneous, preventing us from maximizing
+benefits from research investments [@wilkinson2016]. Per @wilkinson2016, *"the
+reason that we often need several weeks (or months) of specialist technical
+effort to gather the data necessary to answer such research questions is not
+the lack of appropriate technology; the reason is, that we do not pay our
+valuable digital objects the careful attention they deserve when we create and
+preserve them"*.
+
+There now exists multiple initiatives that address this issue by assembling,
+organizing and sharing vast arrays of environmental data.
+Biotic data can be accessed through web portals such as the Ocean Biogeographic
+Information System [OBIS; @obis2018], the Global Biodiversity Information Facility
+[GBIF; @gbif2018], the Global Biotic Interactions platform [GloBI; @poelen2014],
+and the World Register of Marine Species [WoRMS; @worms2017]. Abiotic data can
+similarly be accessed through WorldClim [@hijmans2005], Bio-ORACLE
+[@tyberghein2012], and MARSPEC [@sbrocco2013]. Initiatives focused on sharing
+environmental data for specific areas also exist, such as the St. Lawrence
+Global Observatory (SLGO; https://ogsl.ca/en), the European Marine Observation
+and Data Network (EMODnet; http://www.emodnet.eu/) and the U.S. Integrated Ocean
+Observing System (IOOS; https://ioos.noaa.gov/). Essential environmental
+parameters are also organized, coordinated and acquired through global
+initiatives like the Group on Earth Observations Biodiversity Observation
+Network [GEO BON; @scholes2012], the Census of Marine Life [CoML; @coml2010]
+and the Global Ocean Observing System (GOOS; http://www.goosocean.org).
+
+Environmental drivers are however conspicuously missing from most of these
+initiatives [but see @halpern2015], even though high resolution data on their
+distribution and intensity is essential to environmental management and impact
+assessments. For this paper, we define environmental drivers (hereafter referred
+to as drivers) as any process that may disturb a natural system. Drivers may be
+natural (e.g. sea surface temperature anomalies and hypoxia) or anthropogenic
+(e.g. fisheries and marine pollution) in origin.
+
+To address this issue, we are launching an initiative called *eDrivers*, an
+open data platform focused on the description of the spatial distribution and
+intensity of drivers in the Estuary and Gulf of St. Lawrence in Canada, a
+unique and complex social-ecological system. The overarching goal of this
+platform is to create an expert community committed to structuring, sharing
+and standardizing drivers data in support to science and management. The
+objective of this paper is to present the guiding principles underlying the
+inception *eDrivers*, the structure of the platform and potential applications.
+Most importantly, we wish to initiate a call for collaboration to any person,
+group or organization who might be interested in contributing to this
+initiative.
+
+
+# The St. Lawrence System
+
+The St. Lawrence, formed by one of the largest estuaries in North America and a
+vast interior sea, is an ecologically complex system characterized by highly
+variable environmental conditions and oceanographic processes, both in space
+and time [@el-sabh1990; @white1997; @dufour2007]. It thus offers a unique and
+heterogeneous array of habitats suited for the establishment of diverse and
+productive ecological communities [@savenkoff2000]. It concomitantly provides
+a wealth of ecosystem services that have historically and contemporarily
+benefited the Canadian economy. It holds a rich fisheries industry targeting
+over 50 species, serves as the gateway to eastern North-America by granting
+access to more than 40 ports, has a booming tourism industry and an expanding
+aquaculture production, develops emerging activities and a yet untapped
+hydrocarbon potential [@beauchesne2016]. With major investments recently made
+and more forthcoming in economic and infrastructure development and research
+[*e.g.* @goq2015; @rqm2018], an intensification of the human footprint is
+expected in the St. Lawrence.
+
+Arising from this expected intensification and the experience of past and
+current ecological tragedies [*e.g.* the collapse of cod fisheries and the
+decline of the beluga population; @frank2005; @plourde2014; @dempsey2018] is a
+call for an integrative and holistic approach to manage the St. Lawrence as a
+whole. Yet, jurisdiction over the St. Lawrence is divided between the Canadian
+federal government and five provincial governments, i.e. Newfoundland and
+Labrador, New Brunswick, Nova Scotia, Prince Edward Island, and Québec, with
+each governmental entity further divided into multiple departments, each with
+different mandates. Researchers from dozens of academic institutions and
+countless local organizations also share an interest in the St. Lawrence. This
+wide range of actors and interests results in highly scattered data management
+and sharing processes, which we wish to address through this open data platform
+initiative.
+
+
+# Open Data Platform
+
+## Guiding principles
+
+Four guiding principles motivate the development of the platform and shaped how
+we structured the platform (Figure \ref{diag}).
+
+### Unity and inclusiveness
+
+***Why***: Operating over such large scales in time, space and subject matter
+requires a vast and diverse expertise that cannot possibly be possessed by any
+one individual or organization. Consequently, we envision a crowd science-like
+initiative [see @franzoni2014] that seeks to mobilize all entities
+with relevant expertise.
+
+***How***:
+By actively inviting, seeking, and developing collaborations as well as
+encouraging constructive criticism from the inception and throughout the
+lifetime of the platform.
+
+By inviting external community contributions (Figure \ref{diag}).
+External researchers or entities wishing to submit data will be invited to do
+so mainly through the SLGO web portal. However, submissions through other data
+portals will be accepted either through the development of data sharing
+agreements or with the caveat that shared data are under an open source license
+and that they adhere to the platform data standards.
+
+By promoting and consolidating existing and highly
+valuable environmental initiatives already in place in the St. Lawrence. Notable
+examples are the annual review of physical [@galbraith2018], chemical, and
+biological [@blais2018] oceanographic conditions in the St. Lawrence, the
+fisheries monitoring program [@dfo2016], the annual groundfish and shrimp
+multidisciplinary survey [@bourdages2017], the characterisation of benthic
+[@dutil2011], epipelagic and coastal [@dutil2012] habitats of the St. Lawrence,
+and Canada's shoreline classification [@eccc2018]. There are also nascent
+efforts to make available information on several human activities in the
+St. Lawrence such as the Marine Spatial Data Infrastructure portal, which
+provides data on zoning, shipping, port activities, and other human activities
+in Canadian waters, including the St. Lawrence [@goc2018].
+<!-- include MDDELCC? -->
+
+
+### Findability, accessibility, interoperability and reusability
+<!-- Original: Openness, transparency and replicability -->
+
+***Why***: Open data has been propelled to the forefront of scientific research
+in an era of open, collaborative and reproducible science. By moving towards
+large scale, cross-disciplinary research and management projects, there is a
+growing need to increase the efficiency of data discovery, access,
+interoperability and analysis, for both humans and computationally automated
+processes [@reichman2011; @wilkinson2016]. Embracing open-data accelerates research
+outcomes, improves transparency and replicability, assists in discovering
+erroneous data and corroborating study findings, and decreases overall costs of
+research initiatives [@reichman2011; @poisot2013; @lowndes2017]. As such, many
+scientific journals (*e.g.* PLoS, Nature, Science), governmental agencies
+[*e.g.* @goc2016] and other institutions are adopting open
+data-sharing policies and detailed management plans as part of their mandate.
+Our goal is to foster efficient and functional open science by creating a
+fully open, transparent and replicable open data platform.
+
+***How***:
+By building an infrastructure adhering to the FAIR Data Principles,
+which states that data and metadata must be Findable, Accessible, Interoperable
+and Reusable. These principles focus on the ability of humans and machines to
+automatically find and (re)use data and knowledge [@wilkinson2016].
+
+By hosting on and developing the platform collaboratively with the St. Lawrence
+Global Observatory [SLGO; https://ogsl.ca/en]. The mission of SLGO is to promote
+and facilitate the accessibility, dissemination and exchange of official and
+quality data and information on the St. Lawrence ecosystem through the networking
+of organisations and data holders to meet their needs and those of users, to
+improve knowledge and to assist decision-making in areas such as public safety,
+climate change, transportation, resources and biodiversity conservation.
+The SLGO is also one of three regional association spearheading the Canadian
+Integreated Ocean Observing System
+(CIOOS; http://meopar.ca/research/cioos-call-for-proposals/),
+which will focus on integrating oceanographic data from multiple sources to
+make them accessible to end-usersand to enable the national coordination of
+ocean observing efforts by integrating isolated or inaccessible data, and by
+identifying gaps or duplications in observations and research efforts.
+
+By making data and associated tools accessible through a variety of ways, namely
+the SLGO web portal, two R packages called *eDrivers* (https://github.com/orgs/eDrivers/eDrivers)
+and *eDriversEx* (https://github.com/orgs/eDrivers/eDriversEx) to access the data trough SLGO's API and to provide
+analytical tools to explore data, respectively, and a Shiny application
+(https://david-beauchesne.shinyapps.io/platformapp/) that allows users to
+explore drivers data interactively (Figure \ref{diag}).
+Note that the data are currently contained within and accessible through the
+*eDrivers* R package only, as we are actively structuring the project on SLGO's
+web portal and geoserver. The functions available in *eDrivers* to access the
+data have however been developed to ensure forward compatiblity once the data
+migrate to SLGO's geoserver.
+
+By defining clear data and metadata standards and specifications to support
+the regional standardization of protocols and practices and to favour
+interoperability with national and international programs like the SLGO web
+portal, the upcoming CIOOS, Essential Ocean Variables (EOV) identified by the
+Global Ocean Observing System [GOOS; http://www.goosocean.org] and the Ocean
+Best Practices repository [OBP; https://www.oceanbestpractices.net/] from the
+International Oceanographic Data and Information Exchange (IODE). The standard
+used for the platform will thus be the North American Profile of ISO
+19115:2003 - Geographic information - Metadata, a schema favoured for
+geospatial data in Canada and the United-States.
+
+By providing version control and code access to the workflows set up to generate
+driver layers from raw data, the R packages and the Shiny application through
+a GitHub organization called *eDrivers* (https://github.com/orgs/eDrivers/).
+
+By commiting to provide an increasingly FAIR infrastructure (*i.e.* a FAIRport)
+as we continue developing it.
+
+### Adaptiveness
+
+***Why***: In the face of uncertainty and in an effort to address impending
+environmental changes, adaptive management has been identified as the chief
+strategy to guide efficient decision-making
+[*e.g.* @costanza1998; @margules2000; @keith2011; @jones2016] and has already
+been discussed in the context of multi-drivers and cumulative impact assessments
+[@halpern2015; @beauchesne2016; @cote2016]. Adaptive management can only be
+truly achieved through a commitment to adaptive monitoring and data reporting
+[@margules2000; @halpern2012; @lubchenco2015]. We further contend that adaptive
+management requires the development of adaptive monitoring tools and
+infrastructures, which we seek to address for the St. Lawrence through a
+continuously-evolving platform.
+
+***How***:
+By setting up mechanisms structuring cyclic reviews of platform content,
+for the integration of new material (*e.g.* data and methods) as it becomes
+available or accessible, and by striving to provide time-series data that are
+crucial to assess temporal trends and potentially early-warning signals of
+ecosystem change (Figure \ref{diag}).
+
+### Peer-review and data credit
+
+***Why***: Peer-review is a fundamental tenet of science that ensures robustness
+and quality of published research and lends credibility to communicated
+scientific outputs [@ware2008; @rennie2016]. In an effort to
+uphold the highest standards of scientific research, we wish to provide data
+layers that have been reviewed, ideally through peer-reviewed
+journals. Like peer-reviewed publications, data must also be given its due
+importance in scientific endeavors and thus be considered as legitimate citable
+products contributing to the overall scientific output of data providers
+[@codata2013; @force112014]. Appropriate citations should
+therefore be provided for all data layers used and shared by the platform.
+
+***How***:
+By clearly identifying peer-reviewed material and associated citation.
+
+By including the persistent identifier, when possible, and full citation of of
+all data layers used and shared on the platform.
+
+By listing all known projects and peer-reviewed publications using or citing
+the data shared on the platform.
+
+By adhering to the Data Citation Principles [@force112014], which
+focus on citation practices that cover purpose, function and attributes of
+citations in an effort to make citations human and machine readable as well as
+providing appropriate credit to data products. As such, all data layers shared
+on the platform will be identified by a persistent identifier (*e.g.* DOI),
+posseess a license outlining conditions of use and a clear *how to cite* label
+including the authors, the data version and year, an informative title, the
+persistent identifier and how to access the data (*e.g.* url).
+
+
+## Content
+
+We first identified a list of 34 drivers (Table 1) known to potentially impact
+the St. Lawrence system. This list was informed by global cumulative impacts
+assessments initiatives [@halpern2008; @halpern2015], regional holistic
+evaluation of the state of the St. Lawrence [@dufour2007; @benoit2012], and
+through communications with regional experts. Drivers are varied in origin,
+from terrestrial (*e.g.* nutrient input) to marine (*e.g.* shipping), and from
+anthropogenic (*e.g.* fisheries) to natural (*e.g.* temperature anomalies).
+
+We have developed and continue developing collaborations with regional experts
+to gather data and characterize the distribution and intensity of these drivers
+in the St. Lawrence system. We have thus far characterized 12 drivers and are
+actively working on the characterization of 12 more, with their development at
+various stages of completion (Table 1). We are also actively seeking
+collaborations or data for 10 drivers (Table 1). We also use global data from
+the National Center for Ecological Analysis and Synthesis (NCEAS) online data
+repository [Table 1; @halpern2015b], as certain layers provide valuable
+information at a resolution adequate for use at regional scales or currently
+constitute the best available knowledge for the St. Lawrence (*e.g.* marine
+pollution).
+<!-- Review with the final list of data that I will indeed be able to share -->
+
+
+# Applications
+
+Assembling all drivers in a single platform will provide a wide array of
+visualization and analytical possibilities that can be useful for both decision
+making and scientific research. Here we describe two such potential
+applications, *i.e.* multi-drivers assessment and multi-scale management.
+Furthermore, we demonstrate the ease with which those applications will be
+possible through the platform by providing the code to replicate the elements
+presented on \ref{fig1} for multi-drivers assessment in box 1.
+
+
+## Multi-drivers assessment
+
+
+This platform initiative will enable usual, single driver impact assessments,
+but it will also pave the way towards holistic assessments of the state of the
+St. Lawrence by enabling the study of combinations of multiple drivers. For
+instance, drivers like hypoxia (Figure \ref{fig1}A) and demersal destructive
+fisheries (Figure \ref{fig1}B) are known to occur mainly in deeper areas of the
+St. Lawrence, and hence a synergy between the two drivers could be anticipated.
+By combining them (Figure \ref{fig1}C), we can evaluate which
+regions in the St. Lawrence are more likely to be affected by both drivers
+simultaneously and evaluate the relative intensity at which they tend to
+co-occur (Figure \ref{fig1}D). Doing this, we observe that hypoxia and bottom
+fisheries tend to co-occur in the St. Lawrence and that they do so at relatively
+high intensities, with extensively used fishing grounds also characterized by
+low levels of oxygen neighboring the limits of hypoxia (*i.e.* ~0.7 mg*L^-1^,
+corresponding to ~30% saturation).
+
+Fisheries in the St. Lawrence have historically affected biodiversity distribution
+and habitat quality [@moritz2015]. Hypoxia, meanwhile, decreases overall
+habitat quality but has variable effects that are species-dependent, ranging
+from well-adapted (*e.g.* northern shrimp *Pandalus borealis* and Greenland
+halibut *Reinhardtius hippoglossoides*; [@pillet2016] to reduced growth rates
+[@dupont2013] and avoidance of oxygen depleted habitats
+[*e.g.* Atlantic cod *Gadus morhua*; @chabot2008] to increased mortality
+[*e.g.* sessile benthic invertebrates; @eby2005; @belley2010]. Certain species
+may thus be negatively affected by fisheries and withstand hypoxia but still
+experience a decrease in prey availability, while others may be negatively
+affected by the compounded effect of both drivers. By providing data on multiple
+drivers and their spatial interaction, the platform will yield valuable
+insights for the integrated management of the St. Lawrence and the ability to
+tackle complex problems.
+
+
+## Multi-scale management
+
+Management is typically distributed across multiple jurisdictional, spatial and
+temporal scales. For example, in the St. Lawrence, commercial fisheries are
+managed at the federal level, with three regional jurisdictions. Ports and shipping,
+meanwhile, are managed by a combination of local, provincial and federal
+institutions. Such divisions, while necessary, isolate decision-making into
+contextualized boxes even though decisions may have consequences reaching far
+beyond its immediate context. With the appropriate time-series data provided by
+cyclic updates of platform content and a commitment to adaptive monitoring, the
+platform will allow us to visualize and evaluate management outcomes and
+efficiency across scales. We draw on two topical issues in
+the St. Lawrence and use simulated data to illustrate this.
+
+The first issue is the case of the North Atlantic Right Whale
+(NARW; *Eubalaena glacialis*), an endangered species that received a lot of media,
+political and scientific attention in the summer of 2017 when 12 dead NARW and
+5 live-entanglements were documented in the St. Lawrence [@daoust2017]. It was
+established that the most likely causes of death were vessel collisions and
+fishing activities [@daoust2017], and a series of management actions were
+implemented to limit impacts to NARW [@dfo2018; @tc2018]. One such action is a
+static fixed engine fisheries closure in the Gulf of St. Lawrence in an area
+encompassing 90% of 2017 NARW observations. With the platform, we can visualize
+the fisheries intensity before (Figure \ref{fig2}B) and eventually after the
+management action (Figure \ref{fig2}D) to evaluate the effects of management
+actions on fixed engine fisheries.
+
+The second issue is the case of port development initiatives in the
+St. Lawrence. Five local port projects scattered through the St. Lawrence have
+been submitted for an environmental assessment review at the Canadian
+Environmental Assessment Agency [@ssl2018]. Of those projects, we focus on the
+marine terminal project on the north shore of the Saguenay River, for which a
+draft environment assessment report was published [@ceaa2018] as well as a
+science response by the Canadian Science Advisory Secretariat [@dfo2018b]. It is
+reported that the establishment of this port alone would lead to a 2.33-fold
+increase in the number of ships in the Saguenay River by 2030, with vessels
+transiting through the St. Lawrence to reach international markets
+[@ceaa2018; @dfo2018b]. With the platform, we can visualize shipping intensity
+before (Figure \ref{fig2}C) and eventually after (Figure \ref{fig2}E) the
+establishment of the marine terminal to evaluate the effects of this project
+on local marine traffic, but along the whole river and the estuary.
+
+Critically, the platform will allow users to explore the compounded effects of
+management outcomes by providing the ability to explore effects on the
+integrative distribution and intensity of drivers by considering them all
+simultaneously (Figure \ref{fig2}A, F), or using any combination of drivers desired.
+Similarly, the effects of multiple decision-making processes could be evaluated
+in combination to see if their outcomes overlapped. This could provide an invaluable
+tool for management and to justify and encourage a strong commitment to adaptive
+monitoring.
+
+
+# Perspectives and next steps
+
+In this perspective paper we present an open data platform focused on
+describing the distribution and intensity of environmental drivers in the
+Estuary and Gulf of St. Lawrence, Canada. The core objectives underlying this
+initiative are to create a community-led project based on transparency and
+inclusivity that will increase accessibility to and interoperability of critical
+data for scientific inquiries and decision-making.
+
+Arguably the most meaningful benefits stemming from this initiative are the
+creation of a cross-jurisdictional collaborative tool and the gains in data
+accessibility and interoperability, effectively curtailing the need to reach
+dozens of experts across multiple departments and over extensive periods of
+time to assemble the data needed for systematic research. These benefits could
+pay quick scientific and management dividends by drawing on the knowledge and
+efforts of a wide range of contributors, by expanding avenues of scientific
+inquiry, by decreasing overall research costs, by increasing research speed
+and by decreasing effort duplication [@franzoni2014]. Critically - and we
+emphasize this point - the platform will allow the scientific and governmental
+communities to identify key knowledge gaps that will assist in prioritizing
+and optimizing research efforts.
+
+Another key issue with data sharing that will be addressed by the platform is,
+as discussed previously, interoperability. By using and enforcing (meta)data
+standards the platform will strongly encourage the standardization of future
+data collection protocols to maintain compatibility. Standardized protocols
+will ease the regional aggregation of local datasets that are currently highly
+fragmented in availability, quality and experimental approaches [@reichman2011].
+It will also enable interoperability with other open data platform (*e.g.
+OBIS). This standardization could also be accompanied by an initiative to extend
+the Essential Ocean Variables (http://www.goosocean.org) to include a list of
+essential driver variables in marine environments. Additional steps towards
+standardization could also be taken by emulating protocols elaborated through
+international programs like GEO BON [@scholes2012] and CoML [@coml2010].
+
+We believe that this project will operationalize evidence-based decision-making
+by streamlining data management and research, allowing science output to be
+available and interpretable on a time scale relevant to management.
+The platform will thus greatly facilitate the application of broad scale,
+holistic research and management approaches such as ecosystem-based management,
+strategic environmental assessments and social-ecological metanetworks
+[*e.g.* @halpern2015; @jones2016; @dee2017].
+
+Significant effort is still needed to bring our vision to fruition. Foremost on
+that list is to maintain our efforts to foster collaborations, develop platform
+content and identify key knowledge gaps. Terrestrial and coastal environments
+must also be incorporated, as the sources of stress within those habitats extend
+to marine environments. A fair and efficient organizational structure will also
+be developed in order to manage the platform as a community.
+Appropriate funding must also be secured to continue building this community and
+ensure the long-term viability of the initiative, although the partnership with
+SLGO partly addresses this issue. Nonetheless, we are well on our way and hopeful
+that this initiative will be a very successful one.
+
+Ultimately, this platform represents a much needed solution to address important
+issues in data management that could radically shift broad scale research and
+management practices towards efficient, adaptive and holistic ecosystem-based
+management in the St. Lawrence and elsewhere in the world. All it requires to
+be successful is for the scientific and political communities to fully commit
+to open data, adaptive monitoring and, most of all, an integrated vision of
+ecosystem management.
+
+\newpage
+
+# Listings
+
+## Box 1
+
+\begin{lstlisting}[frame=single]
+# Code to access data and generate figure 2
+# Install eDrivers package
+devtools::install_github('eDrivers/eDrivers')
+
+# Load data
+library(eDrivers)
+drivers <- fetchDrivers(drivers = c('hypoxia','fishDD'))
+
+# Get data from `eDrivers` class object
+driverData <- getData(drivers)
+
+# Normalize data
+driverData <- driverData / cellStats(driverData, 'max')
+
+# Visualize data and combination
+plot(driverData$fishDD)   # Demersal destructive fisheries
+plot(driverData$hypoxia)  # Hypoxia
+plot(sum(driverData))     # Combination
+
+# Identify values > 0 and not NAs
+driverData$fishDD[driverData$fishDD < 0] <- NA
+driverData$fishDNH[driverData$hypoxia < 0] <- NA
+id0 <- !is.na(values(driverData$fishDD)) &
+       !is.na(values(driverData$hypoxia))
+
+# 2D kernel for driver co-intensity
+library(MASS)
+coInt  <- kde2d(x = values(driverData$fishDD)[id0],
+                y = values(driverData$hypoxia)[id0],
+                n = 500, lims = c(0, 1, 0, 1))
+image(coInt, zlim = c(0,max(coInt$z)))
+
+# Driver density distribution
+plot(density(driverData$fishDD[id0]))   # Demersal destructive
+plot(density(driverData$hypoxia[id0]))  # Hypoxia
+\end{lstlisting}
+
+
+\newpage
+
+# Figures
+
+![Diagram of the platform structure. Community input in the form of raw data is accessed through the St. Lawrence Global Observatory (SLGO); https://ogsl.ca/en) repository - the platform host - or through open access repositories (*e.g.* NASA data). The raw data are then processed through a workflow hosted on the *eDrivers* GitHub organization (https://github.com/orgs/eDrivers/). Data processing may be as simple as data rescaling (*e.g.* night lights) or make use of more complex methodologies (*e.g.* waste water). All data is then hosted on SLGO's geoserver and accessible through their API. We developped a R package called *eDrivers* to access the driver layers through R and we are actively developping a second R package called *eDriversEx* that includes analytical tools to explore drivers data. Finally, we have developped a Shiny app that allows users to explore drivers data interactively (https://david-beauchesne.shinyapps.io/platformapp/). All R components of the project are also hosted on the *eDrivers* GitHub organization. \label{diag}](./figures/structure.png)
+
+![Example of platform content using the spatial distribution and the intensity of hypoxia and demersal destructive fisheries in the St. Lawrence. An index of hypoxia (**A**) was measured by normalizing values of bottom oxygen saturation percentage [@dutil2011] between 0 and 1 so that values close to 0 are fully saturated in $O_2$, while values close to 1 are hypoxic. Areas with less than 30% $O_2$ saturation (index $>$ 0.7) are generally considered hypoxic. Demersal destructive fisheries (**B**) correspond to fishing activities using trawl and dredges. Intensity of fishing activities was measured using fisheries location data collected between 2010 and 2015 [@dfo2016] and a 2km buffer to consider trawling and dredging area. For each study area cell ($1 km^2$), fishing intensity (FI) was measured as the annual area weighted total biomass ($kg$) yield for all species captured: $FI = \sum_{i = 1}^{n} B_i * \frac{Area_{Fish}}{Area_{Cell}}$, where $B_i$ is the total annual biomass captured in each cell. As fishing intensity was highly skewed towards zeroes, we FI was log transformed to obtain a workable distribution. Values were then normalized to allow comparison with hypoxia values. drivers intensity was summed (**C**) to visualize the combination of hypoxia and demersal destructive fisheries. Finally, individual density and the co-intensity of hypoxia and demersal destructive fisheries was investigated with a kernel analysis (**D**).\label{fig1}](./figures/figure1.png)
+
+\newpage
+
+![Example of multi-scale management of the Estuary and Gulf of St. Lawrence using time-series data from the drivers platform. Regional (**B**, **C**) and local (**D**, **E**) scale decision-making are contrasted to show how management processes operating at different scales can influence (**A**, **F**). The data used for the period before management actions (**A**, **B**, **C**) is available on the platform, while the data used for the period after management actions (**D**, **E**, **F**) was simulated to correspond to their likely effects on drivers distribution and intensity. The effects of port development on shipping were simulated by increasing shipping intensity from the St. Lawrence Estuary through the Saguenay River to the projected marine terminal by the expected 2.33-fold increase in number of ships [**D**; @dfo2018b]. The effects of the static fixed engine fisheries closure in the Gulf of St. Lawrence in response to North Atlantic Right Whale (*Eubalaena glacialis*) 2017 casualties were simulated by redistributing the mean total annual biomass yield from the closure area to neighbouring fishing zones (**F**). Effects of local and regional management actions were then used to update the overall distribution and intensity of all drivers in the St. Lawrence (**F**). \label{fig2}](./figures/figure2.png)
+
+\newpage
+
+# Tables
+
+Table 1. List of drivers listed for inclusion in the multi-drivers platform. Their development status is detailed as such: data unavailable: no data is known to be available; seeking collaboration: we are actively seeking collaborations and expertise to develop this drivers layer; in development: we are in the process of building the driver layer, at varying levels of progress; complete: driver layer is complete for this version of the platform. Note that drivers identified as complete but identified with an * were completed using data from [@halpern2015b] and that development of these drivers using regional data may still be pursued. Finally, a relative evaluation of progress made towards completion of each driver is presented. Black and grey boxes are for regional and global data development, respectively.
+
+```{r table1, echo=F, fontsize=4}
+readRDS('./tables/table1.RDS')
+```
+
+\newpage
+
+
+# Acknowledgements
+
+TO WRITE
+
+# Author contributions statement
+
+
+# Conflict of interest statement
+
+The authors declare that the submitted work was carried out in the absence of any personal, professional or financial relationships that could potentially be construed as a conflict of interest.
+
+
+# Reference
+
+
+<!--
+Additional notes:
+
+*Elements needed*:
+  - Platform host (F-A-I-R): SLGO, (present CIOOS)
+X  - Data access (F-A-I-R):
+X    - SLGO: Rawdata, Geoserver, API
+X    - eDrivers R package
+X    - eDriversEx R package
+X    - Shiny application
+X  - Code access and version control (F-A-I-R):  eDrivers organization
+X    - Drivers workflow, R packages, Shiny app
+O  - Essential Drivers Variables (I): EOV, GOOS (EBV)
+B1  - Rich metadata standard and ontology (F-I-R): SLGO, CIOSS, Ocean Best Practices(?)
+B1  - Data and metadata format (I-R): JSON & TXT
+B1  - Data citation (F-R): Data citation principles Force11
+B1  - Persistent Identifier (F): DOI for all datasets used (if available) and shared
+B1  - License agreement (A-R): detailed for each data shared
+B1  - How to cite
+
+Reusability:
+- Describe the scope of your data: for what purpose was it generated/collected?
+- Mention any particularities or limitations about the data that other users should be aware of.
+- Specify the date of generation/collection of the data, the lab conditions, who prepared the data, the parameter settings, the name and version of the software used.
+- Is it raw or processed data?
+- Ensure that all variable names are explained or self-explanatory (i.e., defined in the research field’s controlled vocabulary).
+- Clearly specify and document the version of the archived and/or reused data.
+- Where the data came from (i.e., clear story of origin/history, see R1),
+- who to cite and/or how you wish to be acknowledged.
+- Include a description of the workflow that led to your data:
+  - Who generated or collected it? How has it been processed?
+  - Has it been published before?
+  - Does it contain data from someone else that you may have transformed or completed?
+  - Ideally, this workflow is described in a machine-readable format.
+ -->
+
+ <!-- It may also be coupled with or serve
+ as a means of operationalizing a network of sampling stations for real-time
+ environmental monitoring [*e.g.* @onc2018]. -->
+
+<!-- management scenarios -->
