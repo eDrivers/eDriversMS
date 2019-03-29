@@ -1,0 +1,174 @@
+---
+title: Next Generation Planning - Structuring and Sharing Environmental Drivers Data for the St. Lawrence
+author: David Beauchesne^1,2,\*^, Rémi M. Daigle^2^, Steve Vissault^3^, Dominique Gravel^3^, Andréane Bastien^5^, Simon Bélanger^4^, Pascal Bernatchez^4^, Hugo Bourdages^7^, Clément Chion^6^, Peter S. Galbraith^7^, Benjamin Halpern^8,9^, Camille Lavoie^2^, Christopher W. McKindsey^7^, Alfonso Mucci^10^, Simon Pineault^11^, Michel Starr^7^, Anne-Sophie Ste-Marie^5^, Philippe Archambault^2^
+date: 2019-02-06
+fontsize: 12pt
+output:
+  pdf_document:
+    toc: false
+    number_sections: true
+  word_document:
+    toc: false
+header-includes:
+   - \usepackage{lineno}
+   - \linenumbers
+   - \usepackage{listings}
+   - \usepackage[svgnames]{xcolor}
+   # - \usepackage{titling}
+   # - \pretitle{\begin{flushleft}}
+   # - \posttitle{\end{flushleft}}
+   - \usepackage{lscape}
+   - \newcommand{\blandscape}{\begin{landscape}}
+   - \newcommand{\elandscape}{\end{landscape}}
+relativeurls: true
+bibliography: eDriversMS.bib
+csl: frontiers.csl
+link-citations: yes
+---
+
+
+<!--
+cd phdproj/eDrivers/eDriversMS/
+rmarkdown::render('./eDriversMS.rmd', 'pdf_document')
+rmarkdown::render('./eDriversMS.rmd', 'word_document')
+-->
+
+<!-- Setting up parameters for code snippet presented in Box 1 -->
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={fetchDrivers, install_github, getData, kde2d},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+  keywordstyle=\color{blue},
+  commentstyle=\color{DarkGreen},
+}
+
+
+^1^Institut des sciences de la mer, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
+^2^Québec Océan, Département de biologie, Université Laval, Québec, QC, Canada \newline
+^3^Département de biologie, Université de Sherbrooke, Sherbrooke, QC, Canada \newline
+^4^Département de Biologie, Chimie et Géographie, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
+^5^St. Lawrence Global Observatory, Rimouski, QC, Canada \newline
+^6^Département des Sciences naturelles, Université du Québec en Outaouais, Gatineau, QC, Canada \newline
+^7^Fisheries and Oceans Canada, Maurice Lamontagne Institute, Mont-Joli, QC, Canada \newline
+^8^National Center for Ecological Analysis and Synthesis, University of California, Santa Barbara, CA, United States \newline
+^9^Bren School of Environmental Science and Management, University of California, Santa Barbara, CA, United States \newline
+^10^Department of Earth & Planetary Sciences, McGill University, Montréal, QC, Canada \newline
+^11^Ministère Environnement et Lutte contre les changements climatiques, Québec, QC, Canada  \newline
+
+**Correspondence**: \newline
+David Beauchesne \newline
+david.beauchesne@uqar.com \newline
+
+**Number of figures**: 5 \newline
+**Number of tables**: 1 \newline
+
+\newpage
+
+# Abstract
+
+
+
+# Introduction
+
+The St. Lawrence System, formed by one of the largest estuaries in the world and
+a vast interior sea, is a complex social-ecological system characterized by
+highly variable environmental conditions and oceanographic processes, both in
+space and time [@el-sabh1990; @white1997; @dufour2007]. It thus offers a unique
+and heterogeneous array of habitats suited for the establishment of diverse and
+productive ecological communities [@savenkoff2000]. As a result, the St.
+Lawrence System provides a wealth of ecosystem services that have historically
+and contemporarily benefited the Canadian economy. It sustains a rich fisheries
+industry targeting more than 50 species, serves as the gateway to eastern
+North-America by granting access to more than 40 ports and the most densely
+populated Canadian region, hosts a booming tourism industry and an expanding
+aquaculture production, fosters emerging activities and boasts a yet untapped
+hydrocarbon potential [@beauchesne2016; @schloss2017 @archambault2017]. With
+major investments recently made and more forthcoming in economic and
+infrastructure development and research [*e.g.* @goq2015; @rqm2018], an
+intensification of the human footprint is expected in the St. Lawrence System.
+
+As elsewhere in the world [see @halpern2015], this intensifying human footprint
+will likely result in increasingly intricate environmental exposure regimes,
+*i.e.* suites of overlapping and potentially interacting environmental drivers
+threatening ecosystems, habitats or ecological communities. Drivers, often
+referred to as stressors or pressures, are any externalities that affect
+environmental processes and disturb natural systems. Drivers may originate from
+natural or human-induced biophysical processes (*e.g.* sea surface temperature
+anomalies and hypoxia) or directly from anthropogenic activities (*e.g.*
+fisheries and marine pollution). The potential for complex interactions between
+drivers is the largest uncertainty when studying or predicting environmental
+change [@darling2008; @cote2016]. The effects of multiple drivers can combine
+non-linearly and result in effects that are greater (synergistic effect) or
+lower (antagonistic effect) than the sum of individual effects
+[@crain2008; @darling2008; @cote2016].  <!-- For example...??? -->
+
+The uncertainty associated with complex driver interactions must therefore be
+taken into account when investigating environmental impacts [@cote2016], yet
+most research on driver effects in marine environments remains overwhelmingly
+focused on single driver assessments [@obrien2019]. Arising from the expected
+increase in environmental exposure and the experiences of past and
+current ecological tragedies such as the collapse of cod fisheries
+[@frank2005; @dempsey2018] and the decline of the beluga and right whale
+populations [@plourde2014] is a need to characterize the distribution,
+intensity and overlap between drivers in the St. Lawrence System. This will
+provide critical information on areas most exposed to cumulative drivers and on
+the interaction potential of drivers in the St. Lawrence. It is also a necessary
+step towards the holistic and integrated management of the St. Lawrence System.
+
+Gathering environmental data for large scale, systematic initiatives can,
+however, be a very challenging and time consuming - not to say painful - process.
+On one hand, there is an overwhelming and expanding wealth of data available.
+Such information overload may inhibit our ability to make decisions based on
+scientific information, promote massive effort duplication, disproportionately
+appropriate research funds to certain sectors, and obscure knowledge gaps amid
+a sea of information [@eppler2004]. On the other hand, crucial data are lacking
+and remain largely unavailable or inaccessible for a variety of reasons,
+including proprietary rights, lack of organizational time, capacity and
+training, and in some rare cases unwillingness to share, curtailing our ability
+for appropriate decision-making.
+
+The current digital infrastructure is highly decentralized and the data
+management and sharing practices are highly heterogeneous, preventing us from
+maximizing benefits from research investments [@wilkinson2016].
+Yet there now exists multiple initiatives that address this issue by assembling,
+organizing and sharing vast arrays of environmental data.
+Biotic data can be accessed through web portals such as the Ocean Biogeographic
+Information System [OBIS; @obis2018], the Global Biodiversity Information Facility
+[GBIF; @gbif2018], the Global Biotic Interactions platform [GloBI; @poelen2014],
+and the World Register of Marine Species [WoRMS; @worms2017]. Abiotic data can
+also be accessed through WorldClim [@hijmans2005], Bio-ORACLE
+[@tyberghein2012], and MARSPEC [@sbrocco2013]. Initiatives focused on sharing
+environmental data for specific areas also exist, such as the St. Lawrence
+Global Observatory (SLGO; https://ogsl.ca/en), the European Marine Observation
+and Data Network (EMODnet; http://www.emodnet.eu/) and the U.S. Integrated Ocean
+Observing System (IOOS; https://ioos.noaa.gov/). Essential environmental
+parameters are also organized, coordinated and acquired through global
+initiatives like the Group on Earth Observations Biodiversity Observation
+Network [GEO BON; @scholes2012], the Census of Marine Life [CoML; @coml2010]
+and the Global Ocean Observing System (GOOS; http://www.goosocean.org).
+
+Tools collating data and knowledge on multiple drivers in a comparable and
+interoperable way are however conspicuously missing from these initiatives
+[but see @halpern2015]. This is in spite of integerated management and assessment
+approaches needing efficient data reporting, standardized data management
+practices and tools tailored to the study of the effects of multiple drivers
+[@dafforn2016; @stock2018]. An additional objective thus emerged in the process of
+addressing our initial goals:
+sharing the knowledge gathered through the process of characterizing drivers in the St. Lawrence.
+We are launching *eDrivers*,
+an open knowledge platform focused on sharing knowledge on the distribution and
+intensity of drivers in the St. Lawrence System and gathering a community of
+experts committed to structuring, standardizing and sharing knowledge on drivers
+in support of science and management.
+
+This manuscript thus serves to present two distinct but related goals. The first
+is to characterize the distribution and intensity of drivers in the St. Lawrence
+System in order to: 1) identify areas of high cumulative exposure,
+2) characterize areas with similar cumulative exposure regimes, dubbed threat
+complexes [@bowler2019] and 3) identify drivers that are likely to interact
+in the St. Lawrence. The second is to present the guiding
+principles underlying the inception and structure of *eDrivers* and use
+this paper as a call for collaboration to any person, group or
+organization that might be interested in contributing to this initiative. 
