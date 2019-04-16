@@ -26,7 +26,7 @@ drNames <- data.frame(var = character(),
                       group = character(),
                       stringsAsFactors = F)
 
-drNames[1, ] <- c("Aragonite","Aragonite","ARAG","Cl")
+drNames[1, ] <- c("Acidification","Acidification","ACID","Cl")
 drNames[2, ] <- c("aquacultureInv","Aquaculture","AQUA","C")
 drNames[3, ] <- c("coastDev","Coastal development","CD","C")
 drNames[4, ] <- c("dirHumImpact","Direct human impact","DHI","C")
