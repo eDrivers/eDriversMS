@@ -38,10 +38,27 @@ rsconnect/
 # Files to ignore
 Archived/
 Documents/
+Data/delete/
 Figures_delete/
 Drontiers
 eDriversMSv1.Rmd
 eDriversMSv2.Rmd
+Data/aswMean.RData
+Data/aswMean2.RData
+Data/aswMedoid.RData
+Data/kmeans.RData
+Data/kmedoid.RData
+Data/wssMean.RData
+Data/wssMedoid.RData
+Data/k.RData
+Data/clMean.RData
+Data/clMed.RData
+Data/bootSimper.RData
+Data/simperMean.RData
+Data/intraSimilarity.RData
+Data/similarityMean.RData
+Code/exploKernelCor.R
+
 
 #iOS file
 .DS_Store
