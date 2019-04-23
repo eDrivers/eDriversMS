@@ -10,7 +10,7 @@ dr <- scale(dr)
 nSample <- 100
 sampleSize <- 10000
 k <- 2:10
-kmedoid <- list('list', length(k))
+kmedoid <- vector('list', length(k)+1)
 for(i in k) {
   cat("   k: ", i, "\r")
   kmedoid[[i]] <- clara(dr,
@@ -20,6 +20,7 @@ for(i in k) {
                         metric="manhattan",
                         stand = TRUE,
                         keep.data = FALSE)
+save(kmedoid, file = './data/kmedoid.RData')
 }
 kmedoid[[1]] <- NULL
 save(kmedoid, file = './data/kmedoid.RData')

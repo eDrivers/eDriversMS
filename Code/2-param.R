@@ -10,10 +10,9 @@ library(cluster)
 library(slmeta)
 
 # Data
-data(egslGrid, package = 'slmeta')
-data(egslSimple, package = 'slmeta')
-data(egslCoast, package = 'slmeta')
 load('./data/drivers.RData')
+load('./data/egslGrid.RData')
+load('./data/egslSimple.RData')
 dr <- drivers[, -1]
 
 # Parameters

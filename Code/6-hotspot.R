@@ -40,7 +40,9 @@ plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          mar        = c(2,2,2,2),
          box        = T,
          axes       = 1:4,
-         northArrow = T)
+         northArrow = F,
+         prj        = slmetaPrj('world'),
+         extent     = 'egslSimple')
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
 plot(st_geometry(egslSimple),
      col = 'transparent',

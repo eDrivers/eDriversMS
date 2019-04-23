@@ -19,14 +19,12 @@ id3 <- clMean == 3
 id4 <- clMean == 4
 id5 <- clMean == 5
 id6 <- clMean == 6
-id7 <- clMean == 7
-clMean[id1] <- 6
-clMean[id2] <- 3
-clMean[id3] <- 2
-clMean[id4] <- 7
-clMean[id5] <- 4
-clMean[id6] <- 5
-clMean[id7] <- 1
+clMean[id1] <- 1
+clMean[id2] <- 6
+clMean[id3] <- 5
+clMean[id4] <- 3
+clMean[id5] <- 2
+clMean[id6] <- 4
 
 # Differences
 cl12 <- as.numeric(clMed == clMean) + 1
@@ -37,26 +35,26 @@ par(mfrow = c(2,2))
 
 # K-medoids clustering
 cols <- pal(k)[clMed]
-plotEGSL('egslSimple')
+plotEGSL('egslSimple', prj = slmetaPrj('world'), extent = 'egslSimple')
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
-plot(st_geometry(egslSimple), col = 'transparent', border = '#25364A', lwd = .75, add = T)
-text(x = mean(par('usr')[1:2]), y = par('usr')[4] - 75000, 'k-medoid clustering', cex = 2, font = 2)
+# plot(st_geometry(egslSimple), col = 'transparent', border = '#25364A', lwd = .75, add = T)
+text(x = mean(par('usr')[1:2]), y = par('usr')[4] - diff(par('usr')[3:4])*.1, 'k-medoids clustering', cex = 2, font = 2)
 
 # K-means clustering
 cols <- pal(k)[clMean]
-plotEGSL('egslSimple')
+plotEGSL('egslSimple', prj = slmetaPrj('world'), extent = 'egslSimple')
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
-plot(st_geometry(egslSimple), col = 'transparent', border = '#25364A', lwd = .75, add = T)
-text(x = mean(par('usr')[1:2]), y = par('usr')[4] - 75000, 'k-means clustering', cex = 2, font = 2)
+# plot(st_geometry(egslSimple), col = 'transparent', border = '#25364A', lwd = .75, add = T)
+text(x = mean(par('usr')[1:2]), y = par('usr')[4] - diff(par('usr')[3:4])*.1, 'k-means clustering', cex = 2, font = 2)
 
 # Difference
 pal2 <- colorRampPalette(c('#00000000', pal(1)))
 cols <- pal2(2)[cl12]
-plotEGSL('egslSimple')
+plotEGSL('egslSimple', prj = slmetaPrj('world'), extent = 'egslSimple')
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
-plot(st_geometry(egslSimple), col = 'transparent', border = '#25364A', lwd = .75, add = T)
-text(x = mean(par('usr')[1:2]), y = par('usr')[4] - 75000, 'Correspondance', cex = 2, font = 2)
-text(x = mean(par('usr')[1:2]), y = par('usr')[4] - 125000, paste0('Cell correspondance: ', corr, '%'), cex = 1.5)
+# plot(st_geometry(egslSimple), col = 'transparent', border = '#25364A', lwd = .75, add = T)
+text(x = mean(par('usr')[1:2]), y = par('usr')[4] - diff(par('usr')[3:4])*.1, 'Correspondance', cex = 2, font = 2)
+text(x = mean(par('usr')[1:2]), y = par('usr')[4] - diff(par('usr')[3:4])*.15, paste0('Cell correspondance: ', corr, '%'), cex = 1.5)
 
 # Legend
 cols <- pal(k)

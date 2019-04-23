@@ -59,7 +59,7 @@ diag(mat) <- (max(mat)+1):(max(mat)+k)
 mat <- t(mat)
 mat[lower.tri(mat)] <- (max(mat)+1):length(mat)
 mat <- t(mat)
-mat <- rbind(mat, c(100,100,rep(max(mat)+1, 3),100,100))
+mat <- rbind(mat, c(100,rep(max(mat)+1, 4),100))
 
 # Circulat plots
 p1 <- vector('list', ncol(contDiss))
@@ -85,11 +85,17 @@ for(i in 1:length(p2)) {
           st_coordinates() %>%
           as.data.frame()
 
+  ext <- st_bbox(egsl)
+
   p2[[i]] <- ggplot() +
              geom_sf(data = egslSimple, fill = NA) +
              geom_point(aes(x = X, y = Y), colour = '#187962', size = .01, data = temp) +
              coord_sf(crs = st_crs(egslSimple), datum = NA) +
-             annotate("text", x = 100000, y = st_bbox(egsl)$ymax-10000, label = paste0('Cluster ', i), color="black",alpha=0.6, size=5) +
+             annotate("text",
+                      x = ext$xmin + diff(c(ext$xmin, ext$xmax))*.2,
+                      y = ext$ymax - diff(c(ext$ymin, ext$ymax))*.05,
+                      label = paste0('Cluster ', i),
+                      color="black",alpha=0.6, size=5) +
              theme(
                 panel.ontop = TRUE,   ## Note: this is to make the panel grid visible in this example
                 panel.grid = element_blank(),
@@ -138,7 +144,7 @@ p <- c(p1,p2,p3,p4)
 png('./figures/interDissimilarity.png', width = 2500, height = 2500, res = 200, pointsize = 7)
 grid.arrange(grobs = p,
              layout_matrix = mat,
-             heights = c(1,1,1,1,1,1,1,.5),
+             heights = c(1,1,1,1,1,1,.5),
              right = textGrob('Driver intensity', gp=gpar(fontsize=20,fontface='bold'), rot = -90),
              left = textGrob('Cumulative dissimilarity contribution', gp=gpar(fontsize=20,fontface='bold'), rot = 90),
              padding = unit(2.5, "line"))

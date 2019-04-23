@@ -25,13 +25,13 @@ layout(mat)
 
 # Plot 1 - Hypoxia
   cols <- rbPal(101)[(drivers$Hypoxia * 100)+1]
-  plotEGSL(layers = 'egslSimple', borders = '#C7CBCE66')
+  plotEGSL(layers = 'egslSimple', borders = '#C7CBCE66', prj = slmetaPrj('world'), extent = 'egslSimple')
   plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
   plot(st_geometry(egslSimple), border = '#00000077', lwd = 0.25, add = T)
 
 # Plot 2 - Demersal destructive
   cols <- rbPal(101)[(drivers$fisheriesDD * 100)+1]
-  plotEGSL(layers = 'egslSimple', borders = '#C7CBCE66')
+  plotEGSL(layers = 'egslSimple', borders = '#C7CBCE66', prj = slmetaPrj('world'), extent = 'egslSimple')
   plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
   plot(st_geometry(egslSimple), border = '#00000077', lwd = 0.25, add = T)
 
@@ -39,7 +39,7 @@ layout(mat)
    drivers$combine <- drivers$Hypoxia + drivers$fisheriesDD
    drivers$combine <- drivers$combine / max(drivers$combine)# Normalize it x / max(x))
    cols <- rbPal(101)[(drivers$combine * 100)+1]
-   plotEGSL(layers = 'egslSimple', borders = '#C7CBCE66')
+   plotEGSL(layers = 'egslSimple', borders = '#C7CBCE66', prj = slmetaPrj('world'), extent = 'egslSimple')
    plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
    plot(st_geometry(egslSimple), border = '#00000077', lwd = 0.25, add = T)
 

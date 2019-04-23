@@ -18,31 +18,30 @@ plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          mar        = c(2,2,2,2),
          box        = T,
          axes       = 1:4,
-         northArrow = T)
+         northArrow = F,
+         prj        = slmetaPrj('world'),
+         extent     = 'egslSimple')
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
-plot(st_geometry(egslSimple),
-     col = 'transparent',
-     border = focus,
-     lwd = .75,
-     add = T)
 
 # Legend
 cols <- pal(nCl)
 x <- par('usr')[1:2]
 y <- par('usr')[3:4]
-yH <- 20000
-xW <- 50000
-gap <- 50000
-gap2 <- 40000
+xR <- diff(x)
+yR <- diff(y)
+yH <- .022*yR
+xW <- .034*xR
+gap <- .034*xR
+gap2 <- .045*yR
 text(x = x[1]+gap, y = y[2]-gap, 'Threat complexes', adj = c(0,.5), font = 2)
 # Polygons
-for(i in 1:7) {
-  xmn <- x[1]+gap+20000
-  xmx <- x[1]+gap+20000+xW
+for(i in 1:k) {
+  xmn <- x[1]+gap+.014*xR
+  xmx <- x[1]+gap+.014*xR+xW
   ymn <- y[2]-gap-i*gap2-yH/2
   ymx <- y[2]-gap-i*gap2+yH/2
   polygon(x = c(xmn, xmx, xmx, xmn), y = c(ymn,ymn,ymx,ymx), col = cols[i], lwd = .5)
-  text(x = xmx+10000, y = mean(c(ymn,ymx)), labels = paste('Threat complex', i), cex = .6, adj = c(0, .5))
+  text(x = xmx+.007*xR, y = mean(c(ymn,ymx)), labels = paste('Threat complex', i), cex = .6, adj = c(0, .5))
 }
 
 dev.off()

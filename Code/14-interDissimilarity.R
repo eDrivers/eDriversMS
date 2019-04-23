@@ -13,18 +13,21 @@ source('./code/bootstrapSimper.R')
 
 # ~~~~~~~~~~~~~~~~~~~ SIMPER ~~~~~~~~~~~~~~~~~~~ #
 # Run iterative simper analysis
-iter <- 200
+iter <- 300
 prop <- .05
 bootSimper <- bootstrapSimper(dr, clMed, iter = iter, prop = prop)
 
 # # This is to run it multiple times simultaneously
 # bootSimper <- bootstrapSimper(dr, clMed, iter = 100, prop = prop, accr = '1')
 # bootSimper <- bootstrapSimper(dr, clMed, iter = 100, prop = prop, accr = '2')
+# bootSimper <- bootstrapSimper(dr, clMed, iter = 100, prop = prop, accr = '3')
 # load('./data/bootSimper1.RData')
 # x1 <- bootSimper
 # load('./data/bootSimper2.RData')
 # x2 <- bootSimper
-# bootSimper <- c(x1,x2)
+# load('./data/bootSimper3.RData')
+# x3 <- bootSimper
+# bootSimper <- c(x1,x2,x3)
 # id <- which(unlist(lapply(bootSimper, is.null)))
 # for(i in rev(id)) bootSimper[[i]] <- NULL
 # save(bootSimper, file = './data/bootSimper.RData')

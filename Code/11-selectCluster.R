@@ -1,7 +1,7 @@
 # Simple script to select the number of clusters in light of the
 # clustering analyses and the validation, and export the simplified data
 # Number of clusters
-k <- 7
+k <- 6
 
 # Load full datasets
 load('./data/kmedoid.RData')
