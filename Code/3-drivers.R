@@ -33,7 +33,7 @@ for(i in 1:nDr) {
   cols <- pal(101)[((drData[id]/max(drData[id]))*100)+1]
   plotEGSL('egslSimple', prj = slmetaPrj('world'), extent = 'egslSimple')
   plot(st_geometry(egslGrid[id, ]), add = T, col = cols, border = cols, lwd = .1)
-  text(x = mean(par('usr')[1:2]), y = par('usr')[4] - 70000, labels = drID)
+  text(x = mean(par('usr')[1:2]), y = par('usr')[4]-.5, labels = drID)
 }
 
 # Scale
