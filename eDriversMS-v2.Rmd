@@ -186,13 +186,18 @@ and the World Register of Marine Species [WoRMS; @wormseditorialboard2017]. Abio
 also be accessed through WorldClim [@hijmans2005], Bio-ORACLE
 [@tyberghein2012], and MARSPEC [@sbrocco2013]. Initiatives focused on sharing
 environmental data for specific areas also exist, such as the St. Lawrence
-Global Observatory (SLGO; https://ogsl.ca/en), the European Marine Observation
-and Data Network (EMODnet; http://www.emodnet.eu/) and the U.S. Integrated Ocean
-Observing System (IOOS; https://ioos.noaa.gov/). Essential environmental
+Global Observatory (SLGO[^slgo]), the European Marine Observation
+and Data Network (EMODnet[^emod]) and the U.S. Integrated Ocean
+Observing System (IOOS[^ioos]). Essential environmental
 parameters are also organized, coordinated and acquired through global
 initiatives like the Group on Earth Observations Biodiversity Observation
 Network [GEO BON; @scholes2012], the Census of Marine Life [CoML; @coml2010]
-and the Global Ocean Observing System (GOOS; http://www.goosocean.org).
+and the Global Ocean Observing System (GOOS[^goos]).
+
+[^slgo]: https://ogsl.ca/en
+[^emod]: http://www.emodnet.eu/
+[^ioos]: https://ioos.noaa.gov/
+[^goos]: http://www.goosocean.org
 
 However, equivalent platforms for environmental drivers have largely focused on
 single drivers (e.g. Global Fishing Watch) and platforms collating
@@ -541,24 +546,26 @@ St. Lawrence system [@governmentofcanada2018].
 By working with existing data portals whose objective is to share
 environmental data. We are thus collaborating actively with the St. Lawrence
 Global Observatory (SLGO) to develop the initiative and to host the
-platform on their web portal (https://ogsl.ca/en). The mission of SLGO is to
+platform on their web portal. The mission of SLGO is to
 promote and facilitate the accessibility, dissemination and exchange of official
 and quality data and information on the St. Lawrence ecosystem through the
 networking of organisations and data holders to meet their needs and those of
 users, to improve knowledge and to assist decision-making in areas such as
 public safety, climate change, transportation, resources and biodiversity
 conservation. SLGO is also one of three regional associations spearheading
-the Canadian Integrated Ocean Observing System (CIOOS; https://cioos.ca),
+the Canadian Integrated Ocean Observing System (CIOOS[^cioos]),
 which will focus on integrating oceanographic data from multiple sources to
 make them accessible to end-users and to enable the national coordination of
 ocean observing efforts by integrating isolated or inaccessible data, and by
 identifying gaps or duplications in observations and research efforts.
-We are also developing collaborations with the Portal on water knowledge
-(http://www.environnement.gouv.qc.ca/eau/portail/), an initiative from the
-Québec provincial government. This portal aims at collecting and sharing
-accurate, complete and updated ressources on water and aquatic ecosystems to
-support the mandate of relevant actors and stakeholders working in
-water and aquatic ecosystems management.
+We are also developing collaborations with the Portal on water knowledge[^melcc],
+an initiative from the Québec provincial government. This portal aims at
+collecting and sharing accurate, complete and updated ressources on water and
+aquatic ecosystems to support the mandate of relevant actors and stakeholders
+working in water and aquatic ecosystems management.
+
+[^cioos]: https://cioos.ca
+[^melcc]: http://www.environnement.gouv.qc.ca/eau/portail/
 
 By actively inviting, seeking, and developing collaborations as well as
 encouraging constructive criticism from the inception and throughout the
@@ -566,7 +573,7 @@ lifetime of the platform.
 
 By inviting external community contributions (Figure \ref{diag}).
 External researchers or entities wishing to submit marine data will be able to
-do so through SLGO web portal (https://ogsl.ca/en). Submissions through
+do so through SLGO web portal. Submissions through
 other data portals will also be accepted either through the development of data
 sharing agreements or with the caveat that shared data are under an open source
 license and that they adhere to the platform data standards.
@@ -589,30 +596,34 @@ and Reusable. These principles focus on the ability of humans and machines to
 automatically find and (re)use data and knowledge [@wilkinson2016].
 
 By making data and associated tools accessible through a variety of ways:
-the SLGO web portal (https://ogsl.ca/en), two R packages called *eDrivers*
-(https://github.com/orgs/eDrivers/eDrivers) and *eDriversEx*
-(https://github.com/orgs/eDrivers/eDriversEx) to access the data through SLGO's
-API and to provide analytical tools to explore data, respectively, and a Shiny
-application (https://david-beauchesne.shinyapps.io/eDriversApp/) to explore
-drivers data interactively (Figure \ref{diag}).
-Note that the data are currently contained within and accessible through the
-*eDrivers* R package only, as we are actively working to allow users to
-download selected layers from SLGO's web portal and geoserver. The functions
-available in *eDrivers* to access the data have however been developed to
-ensure forward compatibility once the data migrate to SLGO's geoserver.
+the SLGO web portal, two R packages called *eDrivers*[^eDR] and *eDriversEx*[^eDX]
+to access the data through SLGO's API and to provide analytical tools to explore
+data, respectively, and a Shiny application[^eDapp] to explore drivers data
+interactively (Figure \ref{diag}). Note that the data are currently contained
+within and accessible through the *eDrivers* R package only, as we are actively
+working to allow users to download selected layers from SLGO's web portal and
+geoserver. The functions available in *eDrivers* to access the data have however
+been developed to ensure forward compatibility once the data migrate to SLGO's
+geoserver.
+
+[^eDR]: https://github.com/orgs/eDrivers/eDrivers
+[^eDX]: https://github.com/orgs/eDrivers/eDriversEx
+[^eDapp]: https://david-beauchesne.shinyapps.io/eDriversApp/
 
 By defining clear data and metadata standards and specifications to support
 the regional standardization of current and future protocols and practices and
 to favour interoperability with national and international initiatives like the
 Essential Ocean Variables (EOV) identified by the Global Ocean Observing System
-[GOOS; http://www.goosocean.org]. As such, we will adopt the metadata standard
+(GOOS). As such, we will adopt the metadata standard
 currently targetted for CIOOS, *i.e.* the North American Profile
 of ISO 19115:2014 - Geographic information - Metadata, a schema favoured
 for geospatial data in Canada and the United States.
 
 By providing version control and code access to the workflows set up to generate
 driver layers from raw data, the R packages and the Shiny application through
-a GitHub organization called *eDrivers* (https://github.com/orgs/eDrivers/).
+a GitHub organization called *eDrivers*[^eD].
+
+[^eD]: https://github.com/orgs/eDrivers/
 
 
 ## Adaptiveness
