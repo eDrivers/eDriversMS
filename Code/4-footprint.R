@@ -39,5 +39,5 @@ legendEGSL(range = c(min(Fd), max(Fd)),
            n = 6)
 
 # City names
-cityEGSL()
+cityEGSL(prj = 4326)
 dev.off()

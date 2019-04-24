@@ -229,8 +229,8 @@ the final index of surface temperature anomalies.
 ### Sea level rise
 
 The data used to characterize sea level rise risk comes from the global
-cumulative impacts assessment on habitats [@halpern2008; @halpern2015] and
-available on the NCEAS online data repository [@halpern2015b]. We provide a
+cumulative impacts assessment on habitats [@halpern2008b; @halpern2015a] and
+available on the NCEAS online data repository [@halpern2015]. We provide a
 brief summary of data and methods in this document. For more details, refer to
 @halpern2015.
 
@@ -244,7 +244,7 @@ transformed as a net change value ($mm$) by multiplying by the number of years
 considered. Only positive values were selected under the assumption that
 only positive sea level rise is likely to cause environmental stress.
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 ## Coastal
@@ -287,7 +287,7 @@ average radiance ($nanoWatts$ $cm^{-2}$ $sr^{-1}$) composite images at a
 15 arc-second (~200 m) resolution.
 
 We used the annual Version 1 Nighttime VIIRS DNB composites between 2015 and
-2016 [@eog2019] to characterize coastal development in coastal areas of the
+2016 [@earthobservationgroup2019] to characterize coastal development in coastal areas of the
 St. Lawrence. As the effects of coastal development are likely acute in its
 direct vicinity, we extracted average radiance values using a 2 km buffer
 around grid cells within 2 km of the coast. We used a weighted area average to
@@ -296,10 +296,10 @@ extract the radiance values.
 
 ### Direct human impact
 
-As in @halpern2008 and @halpern2015, we used the sum of coastal populations as
+As in @halpern2008b and @halpern2015, we used the sum of coastal populations as
 a proxy of direct human impact. We used Statistics Canada dissemination area
 population count from the 2016 census to obtain coastal population size
-around the St. Lawrence [@statscan2017]. Dissemination areas are the smallest
+around the St. Lawrence [@statisticscanada2017]. Dissemination areas are the smallest
 standard geographic area in which census data are disseminated and they combine
 to cover all of Canada. The census provides population count within the boundary
 of each dissemination area, which we used to evaluate total coastal population.
@@ -323,8 +323,8 @@ small percentage of their total area.
 ### Inorganic pollution
 
 The data used to characterize inorganic pollution comes from the global
-cumulative impacts assessment on habitats [@halpern2008; @halpern2015] and
-available on the NCEAS online data repository [@halpern2015b]. We provide a
+cumulative impacts assessment on habitats [@halpern2008b; @halpern2015a] and
+available on the NCEAS online data repository [@halpern2015]. We provide a
 brief summary of data and methods in this document. For more details, refer to
 @halpern2015.
 
@@ -336,15 +336,15 @@ this layer. The data obtained was aggregated at the watershed scale and spread
 into coastal and marine environments was modelled using a diffusive plume model
 from each watershed pourpoints (*e.g.* river mouths).
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 
 ### Nutrient pollution
 
 The data used to characterize nutrient pollution comes from the global
-cumulative impacts assessment on habitats [@halpern2008; @halpern2015] and
-available on the NCEAS online data repository [@halpern2015b]. We provide a
+cumulative impacts assessment on habitats [@halpern2008b; @halpern2015a] and
+available on the NCEAS online data repository [@halpern2015]. We provide a
 brief summary of data and methods in this document. For more details, refer to
 @halpern2015.
 
@@ -359,15 +359,15 @@ from each watershed pourpoint (*e.g.* river mouths) were then used to model the
 distribution and intensity of nutrient pollution in coastal and marine
 environments.
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 
 ### Organic pollution
 
 The data used to characterize organic pollution comes from the global
-cumulative impacts assessment on habitats [@halpern2008; @halpern2015] and
-available on the NCEAS online data repository [@halpern2015b]. We provide a
+cumulative impacts assessment on habitats [@halpern2008b; @halpern2015a] and
+available on the NCEAS online data repository [@halpern2015]. We provide a
 brief summary of data and methods in this document. For more details, refer to
 @halpern2015.
 
@@ -377,7 +377,7 @@ regression between pesticides and fertilizers or agricultural GDP. The same
 methodology as that used to characterized nutrient pollution was then applied
 to organic polllution.
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 
@@ -420,8 +420,8 @@ dredge, driftnet, hand line, longline, scuba diving, purse seine, seine, beach
 seine and jig fishing. Intensity of fishing activities was divided among gear
 types and based on their respective types of environmental impacts (Table S2).
 For example, traps and trawls have very different effects on a system. Gear
-classification was done using the classification presented in @halpern2008 and
-@halpern2015b and is broken down into 5 distinct classes: demersal destructive
+classification was done using the classification presented in @halpern2008b and
+@halpern2015 and is broken down into 5 distinct classes: demersal destructive
 (DD), demersal, non-destructive, low-bycatch (DNL), demersal, non-destructive,
 high-bycatch (DNH), pelagic, low-bycatch (PLB) and pelagic, high-bycatch (PHB).
 This categorization therefore divides the fisheries data into 5 distinct
@@ -476,20 +476,20 @@ how impacted each grid cell is in terms of extracted biomass.
 ### Shipping
 
 The data used to characterize shipping comes from the global cumulative impacts
-assessment on habitats [@halpern2008; @halpern2015] and available on the NCEAS
-online data repository [@halpern2015b]. We provide a brief summary of data and
+assessment on habitats [@halpern2008b; @halpern2015a] and available on the NCEAS
+online data repository [@halpern2015]. We provide a brief summary of data and
 methods in this document. For more details, refer to @halpern2015.
 
 Two data sources were used to characterize shipping. The first set of data is
 gathered as part of the World Meteorological Organization Voluntary Observing
-Ships' (VOS) scheme [@jcomm2018]. Ships participating in the program gather
+Ships' (VOS) scheme. Ships participating in the program gather
 meteorological data along with observation location as part of an open-ocean
 climate dataset. The data spans 20 years and annually covers 10-20% of ships
 worlwide. Data used spanned 2003 to 2011.
 
 The second set of data comes from the Automatic Identification System (AIS),
 an initiative launched in 2002 that sought to improve marine safety by providing
-mariners with real-time vessel traffic [@tetreault2002]. Through the
+mariners with real-time vessel traffic. Through the
 International Maritime Organization SOLAS agreement, all vessels of over 300
 gross tonnage on international voyages and those carrying passengers are now
 required to be equipped with AIS transceivers. These transceivers use Global
@@ -502,16 +502,16 @@ data from fishing, high-speed, pleasure and support classes. Shipping intensity
 was evaluated as the number of fishing tracks at a 0.1 decimal degrees resolution.
 For more details on data and methods used, consult [@walbridge2013].
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 ### Invasive species
 
 The data used to characterize invasive species risk comes from the global
-cumulative impacts assessment on habitats [@halpern2008; @halpern2015] and
-available on the NCEAS online data repository [@halpern2015b]. We provide a
+cumulative impacts assessment on habitats [@halpern2008b; @halpern2015a] and
+available on the NCEAS online data repository [@halpern2015]. We provide a
 brief summary of data and methods in this document. For more details, refer to
-supplementary materials provided in @halpern2008 and @halpern2015.
+supplementary materials provided in @halpern2008b and @halpern2015.
 
 Cargo volume was used as a proxy of invasion risk under the assumption that
 risk of invasion is proportional to tonnes of goods transferred through ports.
@@ -527,21 +527,21 @@ decay function that set the maximum spread distance to approximately 1000 km.
 The plume model was then clipped to areas less than 60 m deep, as
 invasives species are more likely to invade shallow areas.
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 ### Marine pollution
 
 The data used to characterize marine pollution risk comes from the global
-cumulative impacts assessment on habitats [@halpern2008; @halpern2015] and
-available on the NCEAS online data repository [@halpern2015b].
+cumulative impacts assessment on habitats [@halpern2008b; @halpern2015a] and
+available on the NCEAS online data repository [@halpern2015].
 Marine pollution was considered to be mainly driver by the shipping industry.
 As such, the driver layer was constructed by combining the shipping (*i.e.*
 shipping lanes) and invasives species (*i.e.* cargo volume) layers.
 invasive. For more details, refer to supplementary materials provided in
-@halpern2008 and @halpern2015.
+@halpern2008b and @halpern2015.
 
-For the St. Lawrence, we overlaid the raw data layers [@halpern2015b] with our
+For the St. Lawrence, we overlaid the raw data layers [@halpern2015] with our
 1 $km^2$ grid cell using weighted area average.
 
 

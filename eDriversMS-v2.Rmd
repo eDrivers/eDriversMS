@@ -109,6 +109,8 @@ solution that could radically influence broad scale research and management
 practices by increasing data accessibility and interoperability and by
 increasing research and decision-making efficiency.
 
+**Keywords**: ocean observing systems, St. Lawrence, environmental drivers,
+cumulative exposure, threat complex, multiple stressors, global change
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -118,7 +120,7 @@ increasing research and decision-making efficiency.
 The St. Lawrence System, formed by one of the largest estuaries in the world and
 a vast interior sea, is a complex social-ecological system characterized by
 highly variable environmental conditions and oceanographic processes, both in
-space and time [@el-sabh1990; @white1997; @dufour2007]. It thus offers a unique
+space and time [@el-sabh1990a; @white1997; @dufour2007]. It thus offers a unique
 and heterogeneous array of habitats suited for the establishment of diverse and
 productive ecological communities [@savenkoff2000]. As a result, the St.
 Lawrence System provides a wealth of ecosystem services that have historically
@@ -129,10 +131,10 @@ populated Canadian region, hosts a booming tourism industry and an expanding
 aquaculture production, fosters emerging activities and boasts a yet untapped
 hydrocarbon potential [@beauchesne2016; @schloss2017 @archambault2017]. With
 major investments recently made and more forthcoming in economic and
-infrastructure development and research [*e.g.* @goq2015; @rqm2018], an
+infrastructure development and research [*e.g.* @governmentofquebec2015; @rqm2018], an
 intensification of the human footprint is expected in the St. Lawrence System.
 
-As elsewhere in the world [see @halpern2015], this intensifying human footprint
+As elsewhere in the world [see @halpern2015a], this intensifying human footprint
 will likely result in increasingly intricate environmental exposure regimes,
 *i.e.* suites of overlapping and potentially interacting environmental drivers
 threatening ecosystems, habitats or ecological communities. Drivers, often
@@ -180,7 +182,7 @@ organizing and sharing vast arrays of environmental data.
 Biotic data can be accessed through web portals such as the Ocean Biogeographic
 Information System [OBIS; @obis2018], the Global Biodiversity Information Facility
 [GBIF; @gbif2018], the Global Biotic Interactions platform [GloBI; @poelen2014],
-and the World Register of Marine Species [WoRMS; @worms2017]. Abiotic data can
+and the World Register of Marine Species [WoRMS; @wormseditorialboard2017]. Abiotic data can
 also be accessed through WorldClim [@hijmans2005], Bio-ORACLE
 [@tyberghein2012], and MARSPEC [@sbrocco2013]. Initiatives focused on sharing
 environmental data for specific areas also exist, such as the St. Lawrence
@@ -221,14 +223,14 @@ might be interested in contributing to this initiative.
 ## Drivers
 
 The list of drivers for which we sought data was informed by a global cumulative
-impact assessment initiative [@halpern2008; @halpern2015], regional holistic
+impact assessment initiative [@halpern2008b; @halpern2015a], regional holistic
 evaluations of the state of the St. Lawrence [@dufour2007; @benoit2012], and
 communications with regional experts. Through the data gathering process, we
 developed and continue to develop collaborations with regional experts and data
 holders. We also use global data from the global cumulative impact assessment
-initiative [@halpern2008; @halpern2015] available from the National Center
+initiative [@halpern2008b; @halpern2015a] available from the National Center
 for Ecological Analysis and Synthesis (NCEAS) online data repository
-[Table 1; @halpern2015b]. We selected global data that were unavailable at the
+[Table 1; @halpern2015]. We selected global data that were unavailable at the
 regional scale and that were available at a resolution adequate for use at the
 scale of the St. Lawrence (*e.g.* marine pollution).
 
@@ -374,7 +376,7 @@ Channels (Figure \ref{footprint}).
 These results are consistent with observations elsewhere in the world, where
 cumulative driver exposure conspicuously arises from and markedly intensifies
 close to coastal cities and at the mouth of rivers draining highly populated
-areas [e.g. @halpern2015; @feist2016; @mach2017; @stock2018]. These are areas
+areas [e.g. @halpern2015a; @feist2016; @mach2017; @stock2018]. These are areas
 where human activities (*e.g.* coastal development and shipping) and footprint
 (*e.g.* pollution runoff) are the most intense [@feist2016], and on which is
 overlaid a background of natural disturbances [@micheli2016]. They are also the
@@ -386,7 +388,7 @@ or home to small coastal communities.
 
 As for offshore exposure, the Estuary, along with the St. Lawrence River,
 provide access to and serve as the primary drainage outflow of the Great Lakes
-Basin, the most densely populated region in Canada [@statcan2017]. Most marine
+Basin, the most densely populated region in Canada [@statisticscanada2017]. Most marine
 traffic thus converges to the Estuary.
 
 While we cannot ascertain that high exposure areas are the most impacted,
@@ -413,7 +415,7 @@ biodiversity distribution and habitat quality [@moritz2015]. Concurrently,
 hypoxia decreases overall habitat quality, but triggers species-dependent
 responses ranging from adaptation [*e.g.* northern shrimp *Pandalus borealis*
 and Greenland halibut *Reinhardtius hippoglossoides*; @pillet2016] to reduced
-growth rates [@dupont2013] and avoidance of oxygen-depleted habitats
+growth rates [@dupont-prinet2013] and avoidance of oxygen-depleted habitats
 [*e.g.* Atlantic cod *Gadus morhua*; @chabot2008] to increased mortality
 [*e.g.* sessile benthic invertebrates; @eby2005; @gilbert2007; @belley2010].
 Certain species may thus be adversely affected by fisheries and withstand
@@ -534,7 +536,7 @@ classification [@eccc2018]. There are also nascent efforts to share
 information on several human activities in the St. Lawrence such as the Marine
 Spatial Data Infrastructure portal, which provides data on zoning, shipping,
 port activities, and other human activities in Canadian waters, including the
-St. Lawrence system [@goc2016].
+St. Lawrence system [@governmentofcanada2018].
 
 By working with existing data portals whose objective is to share
 environmental data. We are thus collaborating actively with the St. Lawrence
@@ -545,9 +547,8 @@ and quality data and information on the St. Lawrence ecosystem through the
 networking of organisations and data holders to meet their needs and those of
 users, to improve knowledge and to assist decision-making in areas such as
 public safety, climate change, transportation, resources and biodiversity
-conservation. The SLGO is also one of three regional association spearheading
-the Canadian Integrated Ocean Observing System
-(CIOOS; http://meopar.ca/research/cioos-call-for-proposals/),
+conservation. SLGO is also one of three regional associations spearheading
+the Canadian Integrated Ocean Observing System (CIOOS; https://cioos.ca),
 which will focus on integrating oceanographic data from multiple sources to
 make them accessible to end-users and to enable the national coordination of
 ocean observing efforts by integrating isolated or inaccessible data, and by
@@ -565,7 +566,7 @@ lifetime of the platform.
 
 By inviting external community contributions (Figure \ref{diag}).
 External researchers or entities wishing to submit marine data will be able to
-do so through the SLGO web portal (https://ogsl.ca/en). Submissions through
+do so through SLGO web portal (https://ogsl.ca/en). Submissions through
 other data portals will also be accepted either through the development of data
 sharing agreements or with the caveat that shared data are under an open source
 license and that they adhere to the platform data standards.
@@ -573,7 +574,7 @@ license and that they adhere to the platform data standards.
 
 ## Findability, accessibility, interoperability and reusability
 
-***Why***: Open data has been propelled to the forefront of scientific research
+***Why***: Open knowledge has been propelled to the forefront of scientific research
 in an era of open, collaborative and reproducible science. By moving towards
 large scale, cross-disciplinary research and management projects, there is a
 growing need to increase the efficiency of data discovery, access,
@@ -605,9 +606,9 @@ the regional standardization of current and future protocols and practices and
 to favour interoperability with national and international initiatives like the
 Essential Ocean Variables (EOV) identified by the Global Ocean Observing System
 [GOOS; http://www.goosocean.org]. As such, we will adopt the metadata standard
-currently targetted for the upcoming CIOOS, *i.e.* the North American Profile
+currently targetted for CIOOS, *i.e.* the North American Profile
 of ISO 19115:2014 - Geographic information - Metadata, a schema favoured
-for geospatial data in Canada and the United-States.
+for geospatial data in Canada and the United States.
 
 By providing version control and code access to the workflows set up to generate
 driver layers from raw data, the R packages and the Shiny application through
@@ -619,9 +620,9 @@ a GitHub organization called *eDrivers* (https://github.com/orgs/eDrivers/).
 ***Why***: In the face of uncertainty and in an effort to address impending
 environmental changes, adaptive management has been identified as the chief
 strategy to guide efficient decision-making
-[*e.g.* @costanza1998; @margules2000; @keith2011; @jones2016] and has already
+[*e.g.* @margules2000; @keith2011; @jones2016; @chion2018] and has already
 been discussed in the context of multi-drivers and cumulative impact assessments
-[@halpern2015; @beauchesne2016; @cote2016; @schloss2017]. Adaptive management can only be
+[@halpern2015a; @beauchesne2016; @cote2016; @schloss2017]. Adaptive management can only be
 truly achieved through a commitment to adaptive monitoring and data reporting
 [@margules2000; @halpern2012; @lubchenco2015]. We further contend that adaptive
 management requires the development of adaptive monitoring tools and
@@ -682,10 +683,10 @@ gaps that will assist in prioritizing and optimizing research efforts.
 Ultimately, we believe that *eDrivers* will operationalize evidence-based
 decision-making by streamlining data management and research, allowing science
 output to be available and interpretable on a time scale relevant to management
-[see @reichman2011]. The platform will thus greatly facilitate the application
+[see @sutherland2004; @reichman2011]. The platform will thus greatly facilitate the application
 of broad scale, holistic research and management approaches such as
 ecosystem-based management, strategic environmental assessments and
-social-ecological metanetworks [*e.g.* @halpern2015; @jones2016; @dee2017].
+social-ecological metanetworks [*e.g.* @halpern2015a; @jones2016; @dee2017].
 
 Significant effort is still needed to bring our vision to fruition. Foremost
 is to maintain our efforts to foster collaborations, develop platform
@@ -730,7 +731,11 @@ Port of Sept-Îles and City of Sept-Îles).
 # Author contributions statement
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-TO WRITE
+DB, RD, DG and PA conceived the manuscript and the underlying objective. DB
+prepared/formatted the data, performed the analyses, was in charge of technical
+developments and lead the drafting of the manuscript. All co-authors contributed
+to data, analases and writing based on their respective expertise and
+contributed to the revision of the manuscript.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 # Conflict of interest statement
