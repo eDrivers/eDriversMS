@@ -83,7 +83,8 @@ environmental drivers (*e.g.* hypoxia and fisheries) threatening ecosystems.
 There is a critical need to systematically characterize the distribution,
 intensity and overlap between drivers to support integrative initiatives such
 as ecosystem-based management. While portals providing knowledge on individual
-drivers exist, platforms collating comparable and interoperable knowledges on
+drivers exist, platforms collating comparable and interoperable knowledges
+<!-- this is the first time I've ever seen the plural of knowledge... technically correct, but seems weird!--> on
 multiple drivers remain conspicuously missing. This paper presents two distinct,
 but related objectives. The first is to characterize the distribution and
 intensity of drivers in the St. Lawrence System. The second is to launch
@@ -129,7 +130,7 @@ industry targeting more than 50 species, serves as the gateway to eastern
 North-America by granting access to more than 40 ports and the most densely
 populated Canadian region, hosts a booming tourism industry and an expanding
 aquaculture production, fosters emerging activities and boasts a yet untapped
-hydrocarbon potential [@beauchesne2016; @schloss2017 @archambault2017]. With
+hydrocarbon potential [@beauchesne2016; @schloss2017 @archambault2017].<!-- @archambault doesn't render? --> With
 major investments recently made and more forthcoming in economic and
 infrastructure development and research [*e.g.* @governmentofquebec2015; @rqm2018], an
 intensification of the human footprint is expected in the St. Lawrence System.
@@ -369,7 +370,7 @@ less than 10000 observations since computation time was manageable.
 Apart from the northeastern Gulf, the cumulative footprint of drivers is
 ubiquitous in the St. Lawrence (Figure \ref{footprint}). Cumulative exposure is
 generally highest along the coast (Figure \ref{footprint}), with hotposts
-located in the vicinity of coastal cities (Figure \ref{hotspot}). In general,
+located in the vicinity of coastal cities (Figure \ref{hotspot})<!-- this figure isn't loaded at the bottom -->. In general,
 offshore areas are less exposed to cumulative drivers, with the Estuary and the
 Anticosti Gyre being notable exceptions (Figures \ref{footprint} and
 \ref{hotspot}). This is not to say that offshore areas are free of exposure,
