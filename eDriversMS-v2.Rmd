@@ -3,6 +3,7 @@ title: Next Generation Planning - Structuring and Sharing Environmental Drivers 
 author: David Beauchesne^1,2,\*^, Rémi M. Daigle^2^, Steve Vissault^3^, Dominique Gravel^3^, Andréane Bastien^4^, Simon Bélanger^5^, Pascal Bernatchez^5^, Marjolaine Blais ^6^, Hugo Bourdages^6^, Clément Chion^7^, Peter S. Galbraith^6^, Benjamin Halpern^8,9^, Camille Lavoie^2^, Christopher W. McKindsey^6^, Alfonso Mucci^10^, Simon Pineault^11^, Michel Starr^6^, Anne-Sophie Ste-Marie^4^, Philippe Archambault^2^
 date: 2019-04-23
 fontsize: 12pt
+font-family: Times New Roman
 output:
   pdf_document:
     toc: false
@@ -21,8 +22,6 @@ header-includes:
    - \newcommand{\blandscape}{\begin{landscape}}
    - \newcommand{\elandscape}{\end{landscape}}
    - \usepackage{bbm}
-   - \usepackage{setspace}
-   - \onehalfspacing
    - \usepackage{float}
 relativeurls: true
 bibliography: eDriversMS.bib
@@ -63,7 +62,7 @@ rmarkdown::render('./eDriversMS.rmd', 'word_document')
 
 **Correspondence**: \newline
 David Beauchesne \newline
-david.beauchesne@uqar.com \newline
+david.beauchesne@uqar.ca \newline
 
 **Number of figures**: 5 \newline
 **Number of tables**: 1 \newline
