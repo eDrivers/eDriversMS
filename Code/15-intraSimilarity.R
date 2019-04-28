@@ -8,7 +8,7 @@ load('./data/clMed.RData')
 
 
 # ~~~~~~~~~~~~~~~~~~~ FUNCTION ~~~~~~~~~~~~~~~~~~~ #
-source('./code/intraSimilarity.R')
+source('./code/intraSim.R')
 
 # ~~~~~~~~~~~~~~~~~~~ INTRA-CLUSTER SIMILARITY ~~~~~~~~~~~~~~~~~~~ #
 # As with the simper analysis, the dataset is mostly too large to use
@@ -23,14 +23,14 @@ sim <- vector('list', k)
 for(i in 1:k) {
   cat("   k: ", i, "\r")
   id <- clMed == i
-  sim[[i]] <- bootIntraSim(dr[id, ], iter = 50, samp = 1200)
+  sim[[i]] <- bootIntraSim(dr[id, ], iter = 50, samp = .25)
   save(sim, file = './data/intraSimilarity.RData')
 }
 
-# Extract species, average and sd
+# Extract species, contribution and sd
 # Summarize in array format
-iter <- length(sim[[1]])
-varNames <- c('average')
+iter <- length(sim[[4]])
+varNames <- c('contr')
 simSummary <- vector('list', k)
 for(i in 1:k) simSummary[[i]] <- array(data = 0, dim = c(ncol(dr), 1, iter), dimnames = list(drNames$accr, varNames))
 
@@ -38,13 +38,13 @@ for(i in 1:k) {
   # Check if there are multiple iterations or not.
   # If length(sim[[i]]) == 2 it means that there were no iterations and the whole cluster was parsed through the simper2 function
   # If not, then sim[[i]] should be equal to the number of iterations
-  if(length(sim[[i]]) == 2) {
+  if(i %in% c(1,2,3)) {
     simSummary[[i]] <- matrix(ncol = 1,
-                              data = sim[[i]]$similarityContribution$average,
-                              dimnames = list(drNames$accr, 'average'))
+                              data = sim[[i]]$contr,
+                              dimnames = list(drNames$accr, 'contr'))
   } else {
     for(j in 1:iter) {
-      simSummary[[i]][,'average',j] <- sim[[i]][[j]]$similarityContribution$average
+      simSummary[[i]][,'contr',j] <- sim[[i]][[j]]$contr
     }
   }
 }

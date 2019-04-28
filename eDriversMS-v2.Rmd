@@ -82,13 +82,12 @@ environmental drivers (*e.g.* hypoxia and fisheries) threatening ecosystems.
 There is a critical need to systematically characterize the distribution,
 intensity and overlap between drivers to support integrative initiatives such
 as ecosystem-based management. While portals providing knowledge on individual
-drivers exist, platforms collating comparable and interoperable knowledges
-<!-- this is the first time I've ever seen the plural of knowledge... technically correct, but seems weird!--> on
+drivers exist, platforms collating comparable and interoperable knowledge on
 multiple drivers remain conspicuously missing. This paper presents two distinct,
 but related objectives. The first is to characterize the distribution and
 intensity of drivers in the St. Lawrence System. The second is to launch
 *eDrivers*, an open knowledge platform gathering experts committed to
-structuring, standardizing and sharing knowledges on drivers in support of
+structuring, standardizing and sharing knowledge on drivers in support of
 science and management. We gathered data on 22 coastal, climate, fisheries and
 marine traffic drivers through collaborations, existing environmental
 initiatives and open data portals. We show that few areas of the St. Lawrence
@@ -227,6 +226,14 @@ might be interested in contributing to this initiative.
 
 ## Drivers
 
+<!-- AQUACULTURE:
+QC: MAPAQ (2016) Description des sites maricoles de la province de Québec. Sous-ministériat aux pêches et à l’aquaculture commerciales, Direction régionale des Îles-de-la-Madeleine. Ministère de l'Agriculture, des Pêcheries et de l'Alimentation du Québec. Québec, Canada
+PEI: DFO (2016) PEI Aquaculture Leases. Aquaculture Division. Department of Fisheries and Oceans Canada. Prince-Edward-Island, Canada. Available at: http://www.arcgis.com/home/item.html?id=16aa8830c7084a8a92ce066b525978b4
+NB: Department of Agriculture, Aquaculture and Fisheries (2016) Marine Aquaculture Site Mapping Program (MASMP). Government of New-Brunswick, New-Brunswick, Canada. Available at: https://www2.gnb.ca/content/gnb/en/departments/10/aquaculture/content/masmp.html
+NS: Department of Fisheries and Aquaculture (2016) Aquaculture Site Mapping Tool. Department of Agriculture, Government of Nova-Scotia. Nova-Scotia, Canada. Available at: https://novascotia.ca/fish/aquaculture/site-mapping-tool/
+NL: Department of Fisheries, Forestry and Agrifoods (2016) Description of aquaculture sites in Newfoundland. Government of Newfoundland and Labrador. Newfoundland, Canada.
+-->
+
 The list of drivers for which we sought data was informed by a global cumulative
 impact assessment initiative [@halpern2008b; @halpern2015a], regional holistic
 evaluations of the state of the St. Lawrence [@dufour2007; @benoit2012], and
@@ -313,7 +320,9 @@ that are central to the cluster they represent. The goal of the algorithm is to
 iteratively minimize intra-cluster dissimilarity. Iterations are compared on the
 basis of the average dissimilarity between cluster objects and representative
 medoid to select the optimal set of $k$ medoids that minimizes average
-dissimilarity. We used 100 iterations using samples of 10000 observations
+dissimilarity. We used the clustering algorithm with the manhattan distance
+since this measure is less affected by extreme values [@ref]. <!-- find reference, legendre et legendre? -->
+We used 100 iterations using samples of 10000 observations
 (*i.e.* ~5% of observations) to identify clusters. Analyses were performed
 using the *cluster* R package [@maechler2018].
 
@@ -341,22 +350,26 @@ algorithm, but used the *k-means* to validate clusters.
 
 The difference between clusters was explored by measuring the total inter-cluster
 dissimilarity and the contribution of each driver to the total inter-cluster
-dissimilarity using a similarity percentage analysis (SIMPER) with Bray-Curtis
-dissimilarity [Figure S4; @clarke1993]. As the drivers dataset is too
-large, we used a bootstrap procedure for the SIMPER analysis, randomly selecting
+dissimilarity using a similarity percentage analysis (SIMPER) with Manhattan
+distance [Figure S4]. The Manhattan distance was again preferred for continuity
+with the clustering analysis and to ensure that outliers did not have a strong
+influence the analysis. As the drivers dataset is large (~ 250000 observations),
+we used a bootstrap procedure for the SIMPER analysis, randomly selecting
 5% of each cluster to run the analysis and repeating the process over 300
 iterations. We also compared the mean intensity of each driver within each
-cluster to better capture the inter-cluster dissimilarity. Analyses were
-performed using the *vegan* R package [@oksanen2018].
+cluster to better capture the inter-cluster dissimilarity.
 
 ### Intra-cluster similarity
 
-Intra-cluster similarity was evaluated using the Bray-Curtis similarity index
-(Figure S5). As with the inter-cluster dissimilarity, we used a
-bootstrap procedure for the intra-cluster similarity, randomly selecting 5% of
-each cluster observation to run the analysis and repeating the process over 300
-iterations. We however did not use the bootstraping procedure for clusters with
-less than 10000 observations since computation time was manageable.
+Intra-cluster similarity was evaluated calculating the intra-cluster Manhattan
+distance and by transforming the mean contribution to distance ($M_c$) of each
+driver by $.1 / (.1 + M_c)$ to obtain a similarity measure for each driver
+($S_d$). The total similarity is the sum of all $S_d$. (Figure S5).
+As with the inter-cluster dissimilarity, we used a bootstrap procedure for the
+intra-cluster similarity, randomly selecting 25% of each cluster observation to
+run the analysis and repeating the process over 50 iterations. We only used the
+bootstraping procedure for clusters with less than 40000 observations since
+computation time was manageable.
 
 
 
@@ -369,7 +382,7 @@ less than 10000 observations since computation time was manageable.
 Apart from the northeastern Gulf, the cumulative footprint of drivers is
 ubiquitous in the St. Lawrence (Figure \ref{footprint}). Cumulative exposure is
 generally highest along the coast (Figure \ref{footprint}), with hotposts
-located in the vicinity of coastal cities (Figure \ref{hotspot})<!-- this figure isn't loaded at the bottom -->. In general,
+located in the vicinity of coastal cities (Figure \ref{hotspot}). In general,
 offshore areas are less exposed to cumulative drivers, with the Estuary and the
 Anticosti Gyre being notable exceptions (Figures \ref{footprint} and
 \ref{hotspot}). This is not to say that offshore areas are free of exposure,
@@ -511,7 +524,7 @@ assemble the data needed to apply integrated research and management. It is also
 a requirement to ensure that this manuscript will not become a quickly outdated
 snapshot of drivers distribution and intensity in the St. Lawrence System,
 but rather serve as a stepping stone towards an adaptive and ever-improving
-collection of knowledges.
+collection of knowledge.
 
 As such, we are launching *eDrivers*, an open knowledge platform focused on
 sharing knowledge on the distribution and intensity of drivers and on gathering
@@ -812,8 +825,17 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 \begin{figure}[H]
 \centering
 \includegraphics{./Figures/footprint.png}
-\caption{Distribution of driver footprint in the Estuary and Gulf of St. Lawrence. The footprint is measured by summing the relative intensity of all drivers for each grid cell: $F_d = \sum_{i=1}^{n} D_i$. Driver layers were also log-transformed when their frequency distribution was non-normal. All driver layers were also normalized between 0 and 1 using the 99th quantile to allow for direct comparison of relative intensities between drivers and control for extreme values.}
+\caption{Distribution of cumulative footprint in the Estuary and Gulf of St. Lawrence. The footprint is measured by summing the relative intensity of all drivers for each grid cell: $F_d = \sum_{i=1}^{n} D_i$. Driver layers were also log-transformed when their frequency distribution was non-normal. All driver layers were also normalized between 0 and 1 using the 99th quantile to allow for direct comparison of relative intensities between drivers and control for extreme values.}
 \label{footprint}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics{./Figures/hotspot.png}
+\caption{Distribution of cumulative hotspots in the Estuary and Gulf of St. Lawrence. Hotspots are defined as the number of drivers in each grid cell with scaled intensity contained over their respective 80th percentile.}
+\label{hotspot}
 \end{figure}
 
 \newpage

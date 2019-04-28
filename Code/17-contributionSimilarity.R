@@ -20,12 +20,12 @@ source('./code/circularPlot.R')
 
 # ~~~~~~~~~~~~~~~~~~~ SIMILARITY CONTRIBUTION ~~~~~~~~~~~~~~~~~~~ #
 # Driver percent contribution to dissimilarity
-contSim <- lapply(similarityMean, function(x) x[,'average'] / sum(x[,'average'])) %>%
+contSim <- lapply(similarityMean, function(x) x[,'contr'] / sum(x[,'contr'])) %>%
             as.data.frame()
 colnames(contSim) <- names(similarityMean)
 
 # Total similarity
-totSim <- lapply(similarityMean, function(x) sum(x[,'average'])) %>%
+totSim <- lapply(similarityMean, function(x) sum(x[,'contr'])) %>%
           as.data.frame()
 
 # Circulat plots

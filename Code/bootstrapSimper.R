@@ -19,7 +19,7 @@ bootstrapSimper <- function(x, cl, iter = 100, prop = .1, accr = '') {
     samp <- unlist(samp)
 
     # Run simper analysis on subset of data
-    bootSimper[[i]] <- simper(x[samp, ], cl[samp])
+    bootSimper[[i]] <- simperMan(x[samp, ], cl[samp])
 
     # Save file
     save(bootSimper, file = paste0('./data/bootSimper', accr, '.RData'))

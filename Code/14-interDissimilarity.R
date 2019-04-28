@@ -9,28 +9,27 @@ load('./data/clMed.RData')
 
 # ~~~~~~~~~~~~~~~~~~~ FUNCTION ~~~~~~~~~~~~~~~~~~~ #
 source('./code/bootstrapSimper.R')
+source('./code/simperMan.R')
 
 
 # ~~~~~~~~~~~~~~~~~~~ SIMPER ~~~~~~~~~~~~~~~~~~~ #
 # Run iterative simper analysis
 iter <- 300
 prop <- .05
-bootSimper <- bootstrapSimper(dr, clMed, iter = iter, prop = prop)
+system.time(bootSimper <- bootstrapSimper(dr, clMed, iter = iter, prop = prop))
 
 # # This is to run it multiple times simultaneously
 # bootSimper <- bootstrapSimper(dr, clMed, iter = 100, prop = prop, accr = '1')
 # bootSimper <- bootstrapSimper(dr, clMed, iter = 100, prop = prop, accr = '2')
 # bootSimper <- bootstrapSimper(dr, clMed, iter = 100, prop = prop, accr = '3')
-# load('./data/bootSimper1.RData')
-# x1 <- bootSimper
-# load('./data/bootSimper2.RData')
-# x2 <- bootSimper
-# load('./data/bootSimper3.RData')
-# x3 <- bootSimper
-# bootSimper <- c(x1,x2,x3)
-# id <- which(unlist(lapply(bootSimper, is.null)))
-# for(i in rev(id)) bootSimper[[i]] <- NULL
-# save(bootSimper, file = './data/bootSimper.RData')
+load('./data/bootSimper1.RData')
+x1 <- bootSimper
+load('./data/bootSimper2.RData')
+x2 <- bootSimper
+load('./data/bootSimper3.RData')
+x3 <- bootSimper
+bootSimper <- c(x1,x2,x3)
+save(bootSimper, file = './data/bootSimper.RData')
 
 
 # ~~~~~~~~~~~~~~~~~~~ SIMPER SUMMARY ~~~~~~~~~~~~~~~~~~~ #
@@ -54,7 +53,7 @@ for(i in 1:nList) {
 
 # Extract summary for simper analyses interations
 for(i in 1:iter) {
-  temp <- summary(bootSimper[[i]], ordered = F)
+  temp <- bootSimper[[i]]
   for(j in 1:nList) {
     simperSummary[[j]][,,i] <- as.matrix(temp[[j]][, varNames])
   }
