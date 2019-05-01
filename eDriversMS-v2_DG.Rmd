@@ -1,0 +1,233 @@
+---
+title: Next Generation Planning - Structuring and Sharing Environmental Drivers Data for the St. Lawrence
+author: David Beauchesne^1,2,\*^, Rémi M. Daigle^2^, Steve Vissault^3^, Dominique Gravel^3^, Andréane Bastien^4^, Simon Bélanger^5^, Pascal Bernatchez^5^, Marjolaine Blais ^6^, Hugo Bourdages^6^, Clément Chion^7^, Peter S. Galbraith^6^, Benjamin Halpern^8,9^, Camille Lavoie^2^, Christopher W. McKindsey^6^, Alfonso Mucci^10^, Simon Pineault^11^, Michel Starr^6^, Anne-Sophie Ste-Marie^4^, Philippe Archambault^2^
+date: 2019-04-23
+fontsize: 12pt
+font-family: Times New Roman
+output:
+  pdf_document:
+    toc: false
+    number_sections: true
+  word_document:
+    toc: false
+header-includes:
+   - \usepackage{lineno}
+   - \linenumbers
+   - \usepackage{listings}
+   - \usepackage[svgnames]{xcolor}
+   # - \usepackage{titling}
+   # - \pretitle{\begin{flushleft}}
+   # - \posttitle{\end{flushleft}}
+   - \usepackage{lscape}
+   - \newcommand{\blandscape}{\begin{landscape}}
+   - \newcommand{\elandscape}{\end{landscape}}
+   - \usepackage{bbm}
+   - \usepackage{float}
+relativeurls: true
+bibliography: eDriversMS.bib
+csl: frontiers.csl
+link-citations: yes
+---
+
+
+<!--
+cd phdproj/eDrivers/eDriversMS/
+rmarkdown::render('./eDriversMS-v2.rmd', 'pdf_document')
+rmarkdown::render('./eDriversMS.rmd', 'word_document')
+-->
+
+<!-- Setting up parameters for code snippet presented in Box 1 -->
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={fetchDrivers, install_github, getData, kde2d},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+  keywordstyle=\color{blue},
+  commentstyle=\color{DarkGreen},
+}
+
+
+^1^Institut des sciences de la mer, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
+^2^Québec Océan, Département de biologie, Université Laval, Québec, QC, Canada \newline
+^3^Département de biologie, Université de Sherbrooke, Sherbrooke, QC, Canada \newline
+^4^St. Lawrence Global Observatory, Rimouski, QC, Canada \newline
+^5^Département de Biologie, Chimie et Géographie, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
+^6^Département des Sciences naturelles, Université du Québec en Outaouais, Gatineau, QC, Canada \newline
+^7^Fisheries and Oceans Canada, Maurice Lamontagne Institute, Mont-Joli, QC, Canada \newline
+^8^National Center for Ecological Analysis and Synthesis, University of California, Santa Barbara, CA, United States \newline
+^9^Bren School of Environmental Science and Management, University of California, Santa Barbara, CA, United States \newline
+^10^Department of Earth & Planetary Sciences, McGill University, Montréal, QC, Canada \newline
+^11^Ministère Environnement et Lutte contre les changements climatiques, Québec, QC, Canada  \newline
+
+**Correspondence**: \newline
+David Beauchesne \newline
+david.beauchesne@uqar.ca \newline
+
+**Number of figures**: 5 \newline
+**Number of tables**: 1 \newline
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# Acknowledgements
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+We thank the Fond de Recherche Québécois Nature et Technologie (FRQNT) and the
+Natural Science and Engineering Council of Canada (CRSNG) for financial support.
+This project is also supported by Québec Océan, the Quebec Centre for
+Biodiversity Science (QCBS), Takuvik, and the Notre Golfe networks. This
+research is also sponsored by the NSERC Canadian Healthy Oceans Network and its
+Partners: Department of Fisheries and Oceans Canada and INREST (representing the
+Port of Sept-Îles and City of Sept-Îles).
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# Author contributions statement
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+DB, RD, DG and PA conceived the manuscript and the underlying objective. DB
+prepared/formatted the data, performed the analyses, was in charge of technical
+developments and lead the drafting of the manuscript. All co-authors contributed
+to data, analases and writing based on their respective expertise and
+contributed to the revision of the manuscript.
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# Conflict of interest statement
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+The authors declare that the submitted work was carried out in the absence of
+any personal, professional or financial relationships that could potentially be
+construed as a conflict of interest.
+
+
+\newpage
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# Listings
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+Box 1. Code snippet demonstrating how to use the *eDrivers* to reproduce
+figure \ref{kernel} in R.
+
+\begin{lstlisting}[frame=single]
+# Install and load eDrivers package
+devtools::install_github('eDrivers/eDrivers')
+library(eDrivers)
+
+# Load data
+drivers <- fetchDrivers(drivers = c('hypoxia','fishDD'))
+
+# Get data from `eDrivers` class object
+driverData <- getData(drivers)
+
+# Normalize data
+driverData <- driverData / cellStats(driverData, 'max')
+
+# Visualize data and combination
+plot(driverData$fishDD)   # Demersal destructive fisheries
+plot(driverData$hypoxia)  # Hypoxia
+plot(sum(driverData))     # Combination
+
+# Identify values > 0 and not NAs
+driverData$fishDD[driverData$fishDD < 0] <- NA
+driverData$fishDNH[driverData$hypoxia < 0] <- NA
+id0 <- !is.na(values(driverData$fishDD)) &
+       !is.na(values(driverData$hypoxia))
+
+# 2D kernel for driver co-intensity
+library(MASS)
+coInt  <- kde2d(x = values(driverData$fishDD)[id0],
+                y = values(driverData$hypoxia)[id0],
+                n = 500, lims = c(0, 1, 0, 1))
+image(coInt, zlim = c(0,max(coInt$z)))
+
+# Driver density distribution
+plot(density(driverData$fishDD[id0]))   # Demersal destructive
+plot(density(driverData$hypoxia[id0]))  # Hypoxia
+\end{lstlisting}
+
+\newpage
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# Figures
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+\begin{figure}[H]
+\centering
+\includegraphics{./Figures/footprint.png}
+\caption{Distribution of cumulative footprint in the Estuary and Gulf of St. Lawrence. The footprint is measured by summing the relative intensity of all drivers for each grid cell: $F_d = \sum_{i=1}^{n} D_i$. Driver layers were  log-transformed when their frequency distribution was non-normal. All driver layers were also normalized between 0 and 1 using the 99th quantile to allow for direct comparison of relative intensities between drivers and control for extreme values.}
+\label{footprint}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics{./Figures/hotspot.png}
+\caption{Distribution of cumulative hotspots in the Estuary and Gulf of St. Lawrence. Hotspots are defined as the number of drivers in each grid cell with scaled intensity contained over their respective 80th percentile.}
+\label{hotspot}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics{./Figures/kernel.png}
+\caption{Interaction between the intensity of hypoxia and demersal destructive fisheries in the St. Lawrence. An index of hypoxia ($A$) was created using bottom-water dissolved oxygen between 2013 and 2017 (Blais et al., 2018). Demersal destructive fisheries ($i.e.$ trawl and dredges) ($B$) intensity was evaluated from fisheries catch data collected between 2010 and 2015 used to measure annual area weighted total biomass ($kg$) in i $km^2$ grid cells (DFO, 2016b). See supplementary materials for more information on specific methodologies. Relative hypoxic stress and demersal destructive fisheries intensity was summed ($C$) to visualize their combined spatial distribution and intensity. Finally, individual density and the co-intensity of hypoxia and demersal destructive fisheries was investigated with a two-dimensional kernel analysis ($D$).}
+\label{kernel}
+\end{figure}
+
+\newpage
+
+**DG** Pas nécessaire de toujours répéter les méthodes dans chacune des légendes
+
+\begin{figure}[H]
+\centering
+\includegraphics{./Figures/cluster.png}
+\caption{Distribution of threat complexes in the Estuary and Gulf of St. Lawrence. Threat complexes are areas with similar cumulative driver exposure regimes (Bowler et al., 2019). Threat complexes were identified using a partitional clustering algorithm (Kaufman and Rousseeuw, 1990). The appropriate number of clusters ($k$) was tested using a range of values and validated by selecting the number of clusters that maximized the average silhouette width (Kaufman and Rousseeuw, 1990) and minimized the total within-cluster sum of squares (WSS). Six distinct threat complexes were identified in the St. Lawrence. The partitional clustering algorithm analysis were performed using the $cluster$ R packages (Maechler et al., 2018). Refer to the Supplementary Materials for more details.}
+\label{cluster}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics{./Figures/structure.png}
+\caption{Diagram of the platform structure. Community input in the form of raw data is accessed through the St. Lawrence Global Observatory (SLGO; https://ogsl.ca/en) repository - the platform host - or through open access repositories ($e.g.$ NASA data). The raw data are then processed through a workflow hosted on the $eDrivers$ GitHub organization (https://github.com/orgs/eDrivers/). Data processing may be as simple as data rescaling ($e.g.$ night lights) or make use of more complex methodologies ($e.g.$ acidification). All data is then hosted on SLGO's geoserver and accessible through their API. We developed a R package called $eDrivers$ to access the driver layers through R and we are actively developing a second R package called $eDriversEx$ that will include analytical tools to explore drivers data. Finally, we have developed a Shiny application that allows users to explore drivers data interactively (https://david-beauchesne.shinyapps.io/eDriversApp/). All R components of the project are hosted and available on the $eDrivers$ GitHub organization.}
+\label{diag}
+\end{figure}
+
+\newpage
+\blandscape
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# Tables
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+Table 1. List of drivers currently available on *eDrivers* and used for the analyses presented in this paper.
+
+```{r table1, echo=F, fontsize=4}
+load('./tables/table1.RData')
+table1
+```
+
+
+\elandscape
+\newpage
+
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+# References
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->

@@ -75,3 +75,6 @@ gg_color_hue <- function(n) {
   hues = seq(15, 375, length = n + 1)
   hcl(h = hues, l = 65, c = 100, alpha = .5)[1:n]
 }
+
+# Extent 
+extFig <- as.numeric(st_bbox(egslSimple)) + c(-1.5,-.5,.5,.5)

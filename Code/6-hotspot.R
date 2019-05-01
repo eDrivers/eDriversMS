@@ -32,6 +32,7 @@ nOver <- max(cumulHotspot, na.rm = T)
 
 # Graph
 png('./figures/hotspot.png', width = 1280, height = 920, res = 300, pointsize = 6)
+# jpeg('./figures/hotspot.jpg', width = 1280, height = 920, res = 300, pointsize = 6)
 cols <- pal(nOver)[cumulHotspot]
 plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          cols       = c('#00000000',off,off),
@@ -42,7 +43,7 @@ plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          axes       = 1:4,
          northArrow = F,
          prj        = slmetaPrj('world'),
-         extent     = 'egslSimple')
+         extent     = extFig)
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
 plot(st_geometry(egslSimple),
      col = 'transparent',
@@ -59,5 +60,5 @@ legendEGSL(range = c(1, nOver),
            n = 6)
 
 # City names
-cityEGSL()
+cityEGSL(prj = 4326)
 dev.off()

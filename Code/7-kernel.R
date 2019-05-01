@@ -4,6 +4,8 @@ source('./code/2-param.R')
 # -----
 # Figure
 png('./figures/kernel.png', width = 1920, height = 1280, res = 300, pointsize = 6)
+# jpeg('./figures/footprint.jpg', width = 1920, height = 1280, res = 300, pointsize = 6)
+
 
 # Layout
 mat <- matrix(0, 28, 32)

@@ -11,7 +11,8 @@ Fd <- rowSums(dr)
 cols <- pal(101)[((Fd/max(Fd, na.rm = T))*100)+1]
 cexMain <- 1
 cexMain2 <- .75
-png('./figures/footprint.png', width = 1280, height = 920, res = 300, pointsize = 6)
+# png('./figures/footprint.png', width = 1280, height = 920, res = 300, pointsize = 6)
+jpeg('./figures/footprint.jpg', width = 1280, height = 920, res = 300, pointsize = 6)
 # par(bg = colBack)
 plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          cols       = c('#00000000',off,off),
@@ -22,7 +23,7 @@ plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          axes       = 1:4,
          northArrow = F,
          prj        = slmetaPrj('world'),
-         extent     = 'egslSimple')
+         extent     = extFig)
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
 plot(st_geometry(egslSimple),
      col = 'transparent',

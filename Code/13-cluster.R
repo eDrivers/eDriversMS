@@ -6,10 +6,30 @@ source('./code/2-param.R')
 load('./data/k.RData')
 load('./data/clMed.RData')
 nCl <- length(unique(clMed))
+load('./data/simperMean.RData')
+source('./code/barPlot.R')
+
+
+# Driver intensity in compared clusters
+drInt1 <- lapply(simperMean, function(x) x[,'ava']) %>%
+          as.data.frame()
+drInt2 <- lapply(simperMean, function(x) x[,'avb']) %>%
+          as.data.frame()
+
+dat <- vector('list', nCl)
+dat[[1]] = data.frame(x = drInt1$X1_2)
+dat[[2]] = data.frame(x = drInt1$X2_3)
+dat[[3]] = data.frame(x = drInt1$X3_4)
+dat[[4]] = data.frame(x = drInt1$X4_5)
+dat[[5]] = data.frame(x = drInt1$X5_6)
+dat[[6]] = data.frame(x = drInt2$X5_6)
 
 
 # ~~~~~~~~~~~~~~~~~~~ CLUSTER ~~~~~~~~~~~~~~~~~~~ #
-png('./figures/cluster.png', width = 1280, height = 920, res = 300, pointsize = 6)
+png('./figures/cluster.png', width = 1280, height = 1280, res = 300, pointsize = 6)
+# jpeg('./figures/cluster.jpg', width = 1280, height = 1280, res = 300, pointsize = 6)
+mat <- matrix(c(1,1,1,1,1,1,2,3,4,5,6,7), nrow = 2, byrow = T)
+layout(mat, heights = c(1, .4))
 cols <- pal(nCl)[clMed]
 plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          cols       = c('#00000000',off,off),
@@ -20,7 +40,7 @@ plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          axes       = 1:4,
          northArrow = F,
          prj        = slmetaPrj('world'),
-         extent     = 'egslSimple')
+         extent     = extFig)
 plot(st_geometry(egslGrid), add = T, col = cols, border = cols, lwd = .1)
 
 # Legend
@@ -44,4 +64,13 @@ for(i in 1:k) {
   text(x = xmx+.007*xR, y = mean(c(ymn,ymx)), labels = paste('Threat complex', i), cex = .6, adj = c(0, .5))
 }
 
+# Add citie
+cityEGSL(prj = 4326)
+
+# barplots
+for(i in 1:6) {
+  barPlot(dat[[i]])
+  mtext(paste0('Threat complex ', i), font = 2, cex = .75)
+  mtext('Mean intensity', side = 1, cex = .5, at = .5, adj = c(.5,.5), line = 1)
+}
 dev.off()
