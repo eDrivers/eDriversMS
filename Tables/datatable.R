@@ -9,7 +9,7 @@ df <- data.frame(Groups = character(0),
                  Years = character(0),
                  Units = character(0),
                  Source = character(0),
-                 Accronym = character(0),
+                 Acronym = character(0),
                  stringsAsFactors = F)
 
 df[1,] <- c("Climate", "Aragonite", 'Lat/long', 'August-September', '2018', '$\\Omega$ $Aragonite$', '[@starr2019]','ACID')
@@ -41,18 +41,18 @@ df[22,] <- c("Coastal", "Toxic algae", '-', '-', '-', 'Expert based', '[@bates20
 df <- df[order(df$Groups, df$Drivers), ]
 
 # Table 1
-table1 <- kable(x = df[, c("Groups", "Drivers", 'SpatRes', "TempRes", 'Years', "Units", "Source")],
-      col.names = c("Groups", "Drivers", 'Spatial resolution', "Temporal resolution", 'Years', "Units", "Source"),
+table1 <- kable(x = df[, c("Groups", "Drivers", 'Acronym', 'SpatRes', "TempRes", 'Years', "Units", "Source")],
+      col.names = c("Groups", "Drivers", 'Acronym', 'Spatial resolution', "Temporal resolution", 'Years', "Units", "Source"),
       row.names = F,
-      align = c('l','l','l','l','l','l','l'),
+      align = c('l','l','l','l','l','l','l','l'),
       format = 'markdown'
      )
-table1[[2]] <- "|:--------|:---------------|:----------|:----------|:----------|:----------|:--------------------|"
+table1[[2]] <- "|:--------|:-------------|:-------|:----------|:----------|:----------|:----------|:--------------------|"
 save(table1, file = './tables/table1.RData')
 
 # Table S1
-tableS1 <- kable(x = df[, c("Groups", "Drivers", "Accronym","Source")],
-      col.names = c("Groups", "Drivers", "Accronym","Source"),
+tableS1 <- kable(x = df[, c("Groups", "Drivers", "Acronym","Source")],
+      col.names = c("Groups", "Drivers", "Acronym","Source"),
       row.names = F,
       align = c('l','l','l','l'),
       format = 'markdown'

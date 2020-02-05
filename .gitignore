@@ -62,3 +62,7 @@ Code/exploKernelCor.R
 
 #iOS file
 .DS_Store
+
+# Other files
+*.tex
+*.pdf

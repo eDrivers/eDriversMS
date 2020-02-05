@@ -53,8 +53,8 @@ rmarkdown::render('./eDriversMS-v2.rmd', 'word_document')
 ^3^Département de biologie, Université de Sherbrooke, Sherbrooke, QC, Canada \newline
 ^4^St. Lawrence Global Observatory, Rimouski, QC, Canada \newline
 ^5^Département de Biologie, Chimie et Géographie, Université du Québec à Rimouski, Rimouski, QC, Canada \newline
-^6^Fisheries and Oceans Canada, Maurice Lamontagne Institute, Mont-Joli, QC, Canada \newline
-^7^Département des Sciences naturelles, Université du Québec en Outaouais, Gatineau, QC, Canada \newline
+^6^Département des Sciences naturelles, Université du Québec en Outaouais, Gatineau, QC, Canada \newline
+^7^Fisheries and Oceans Canada, Maurice Lamontagne Institute, Mont-Joli, QC, Canada \newline
 ^8^National Center for Ecological Analysis and Synthesis, University of California, Santa Barbara, CA, United States \newline
 ^9^Bren School of Environmental Science and Management, University of California, Santa Barbara, CA, United States \newline
 ^10^Department of Earth & Planetary Sciences, McGill University, Montréal, QC, Canada \newline
