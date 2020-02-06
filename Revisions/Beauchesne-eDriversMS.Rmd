@@ -23,9 +23,11 @@ header-includes:
    - \newcommand{\elandscape}{\end{landscape}}
    - \usepackage{bbm}
    - \usepackage{float}
+   - \usepackage{ulem}
+   - \definecolor{blue}{HTML}{20cad5}
 relativeurls: true
-bibliography: eDriversMS.bib
-csl: frontiers.csl
+bibliography: Beauchesne-eDriversMS.bib
+csl: ../frontiers.csl
 link-citations: yes
 ---
 
@@ -345,7 +347,7 @@ dissimilarity and the contribution of each driver to the total inter-cluster
 dissimilarity using a similarity percentage analysis (SIMPER) with Manhattan
 distance [Figure S5; @clarke1993]. The Manhattan distance was again preferred for continuity
 with the clustering analysis and to ensure that outliers did not have a strong
-influence the analysis. As the drivers dataset is large (~ 250000 observations),
+influence \textcolor{blue}{on} the analysis. As the drivers dataset is large (~ 250000 observations),
 we used a bootstrap procedure for the SIMPER analysis, randomly selecting
 5% of each cluster to run the analysis and repeating the process over 300
 iterations. We also compared the mean intensity of each driver within each
@@ -482,11 +484,9 @@ pollution, as well as demersal destructive and pelagic high-bycatch fisheries.
 This threat complex corresponds primarily to the Laurentian Channel and
 incorporates parts of the Esquiman and Anticosti Channels.
 
-Of particular concern are threat complexes 3 and 6, which are the two most
-exposed complexes in the St. Lawrence and are characterized by distinct
-cumulative exposure regimes Between them, they capture most of the coastal
-and offshore hotspots identified in the St. Lawrence.
-They also offer some insight into the potential importance of considering
+\textcolor{red}{\sout{Of particular concern are threat complexes 3 and 6, which are the two most exposed complexes in the St. Lawrence and are characterized by distinct cumulative exposure regimes Between them, they capture most of the coastal and offshore hotspots identified in the St. Lawrence.}}
+\textcolor{blue}{Threat complexes 3 and 6 capture most coastal and offshore hotspots and are the two most exposed complexes in the St. Lawrence.}
+They \textcolor{red}{\sout{also}} offer some insight into the potential importance of considering
 spatial dynamics in areas intersecting multiple threat complexes. For example,
 threat complexes 3 and 6 meet at the mouth of the River Saguenay. This area
 is particularly dynamic, with deep Atlantic waters advected through estuarine
@@ -818,7 +818,7 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 
 \begin{figure}[H]
 \centering
-\includegraphics{./Figures/egsl.png}
+\includegraphics{../Figures/egsl.png}
 \caption{Description of the Estuary and Gulf of St. Lawrence in Eastern Canada}
 \label{egsl}
 \end{figure}
@@ -827,7 +827,7 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 
 \begin{figure}[H]
 \centering
-\includegraphics{./Figures/footprint.png}
+\includegraphics{../Figures/footprint.png}
 \caption{Distribution of cumulative footprint in the St. Lawrence System.}
 \label{footprint}
 \end{figure}
@@ -836,7 +836,7 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 
 \begin{figure}[H]
 \centering
-\includegraphics{./Figures/hotspot.png}
+\includegraphics{../Figures/hotspot.png}
 \caption{Distribution of cumulative hotspots in the St. Lawrence System.}
 \label{hotspot}
 \end{figure}
@@ -845,7 +845,7 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 
 \begin{figure}[H]
 \centering
-\includegraphics{./Figures/kernel.png}
+\includegraphics{../Figures/kernel.png}
 \caption{Interaction between the intensity of hypoxia and demersal destructive fisheries in the St. Lawrence. An index of hypoxia ($A$) was created using bottom-water dissolved oxygen between 2013 and 2017 (Blais et al., 2018). Demersal destructive fisheries ($i.e.$ trawl and dredges) ($B$) intensity was evaluated from fisheries catch data collected between 2010 and 2015 used to measure annual area weighted total biomass ($kg$) in i $km^2$ grid cells (DFO, 2016b). See supplementary materials for more information on specific methodologies. Relative hypoxic stress and demersal destructive fisheries intensity was summed ($C$) to visualize their combined spatial distribution and intensity. Finally, individual density and the co-intensity of hypoxia and demersal destructive fisheries was investigated with a two-dimensional kernel analysis ($D$).}
 \label{kernel}
 \end{figure}
@@ -854,8 +854,8 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 
 \begin{figure}[H]
 \centering
-\includegraphics{./Figures/cluster.png}
-\caption{Distribution of threat complexes in the Estuary and Gulf of St. Lawrence (upper panel). Threat complexes (a term coined by Bowler et al., 2019) are areas with similar cumulative driver exposure regimes. Mean intensity of all coastal (red), climate (green), fisheries (blue) and marine traffic (purple) drivers within each threat complex (lower panel). Refer tp Table 1 for acronym meaning and to the Supplementary Materials for more details.}
+\includegraphics{../Figures/cluster.png}
+\caption{Distribution of threat complexes in the Estuary and Gulf of St. Lawrence (upper panel). Threat complexes (a term coined by Bowler et al., 2019) are areas with similar cumulative driver exposure regimes. Mean intensity of all coastal (red), climate (green), fisheries (blue) and marine traffic (purple) drivers within each threat complex (lower panel). Refer \textcolor{red}{\sout{tp}} \textcolor{blue}{to} Table 1 for acronym meaning and to the Supplementary Materials for more details.}
 \label{cluster}
 \end{figure}
 
@@ -863,7 +863,7 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 
 \begin{figure}[H]
 \centering
-\includegraphics{./Figures/structure.png}
+\includegraphics{../Figures/structure.png}
 \caption{Diagram of the platform structure. Community input in the form of raw data is accessed through the St. Lawrence Global Observatory (SLGO; https://ogsl.ca/en) repository - the platform host - or through open access repositories ($e.g.$ NASA data). The raw data are then processed through a workflow hosted on the $eDrivers$ GitHub organization (https://github.com/orgs/eDrivers/). Data processing may be as simple as data rescaling ($e.g.$ night lights) or make use of more complex methodologies ($e.g.$ acidification). All data is then hosted on SLGO's geoserver and accessible through their API. We developed a R package called $eDrivers$ to access the driver layers through R and we are actively developing a second R package called $eDriversEx$ that will include analytical tools to explore drivers data. Finally, we have developed a Shiny application that allows users to explore drivers data interactively (https://david-beauchesne.shinyapps.io/eDriversApp/). All R components of the project are hosted and available on the $eDrivers$ GitHub organization.}
 \label{diag}
 \end{figure}
@@ -878,7 +878,7 @@ plot(density(driverData$hypoxia[id0]))  # Hypoxia
 Table 1. List of drivers currently available on *eDrivers* and used for the analyses presented in this paper.
 
 ```{r table1, echo=F, fontsize=4}
-load('./tables/table1.RData')
+load('../tables/table1.RData')
 table1
 ```
 
