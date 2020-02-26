@@ -15,15 +15,12 @@ header-includes:
    - \linenumbers
    - \usepackage{listings}
    - \usepackage[svgnames]{xcolor}
-   # - \usepackage{titling}
-   # - \pretitle{\begin{flushleft}}
-   # - \posttitle{\end{flushleft}}
    - \usepackage{lscape}
    - \newcommand{\blandscape}{\begin{landscape}}
    - \newcommand{\elandscape}{\end{landscape}}
    - \usepackage{bbm}
    - \usepackage{float}
-   - \usepackage{ulem}
+   - \usepackage[normalem]{ulem}
    - \definecolor{blue}{HTML}{20cad5}
 relativeurls: true
 bibliography: Beauchesne-eDriversMS.bib
@@ -101,7 +98,6 @@ and interoperability.
 
 **Keywords**: ocean observing systems, St. Lawrence, environmental drivers,
 cumulative exposure, threat complex, multiple stressors, global change
-
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 # Introduction
@@ -627,8 +623,7 @@ Through *eDrivers*, these observations will be iteratively improved towards an i
 Critically, *eDrivers* will allow the scientific and governmental communities to identify key knowledge gaps that will assist in prioritizing and optimizing research efforts. Ultimately, we believe that *eDrivers* will operationalize evidence-based decision-making by streamlining data management and research, allowing science output to be available and interpretable on a time scale relevant to management [see @sutherland2004; @reichman2011]. The platform will thus greatly facilitate the application of broad scale, holistic research and management approaches such as marine spatial planning, ecosystem-based management, marine spatial planning and strategic environmental assessments [*e.g.* @rice2011; @halpern2015a; @jones2016].
 
 \textcolor{red}{\sout{While the focus of our paper has been on the description of drivers in the St. Lawrence, drivers are but one of the 4 elements required to properly evaluate environmental impacts. This single knowledge node should be weaved with other, comparable, nodes required for integrated management approaches such as species distribution and marine protected areas. Ultimately, all of these knowledge nodes could be weaved together through social-ecological metanetworks (Dee et al. 2017).}}
-
-\textcolor{blue}{A caveat to our initiative is that it focuses on a single element required for fully operational impact assessments. Data that provide knowledge on the exposure of ecosystems to drivers are called stressor-based indicators (Dube and Munkittrick 2001; Dubé 2003; Jones 2016). These indicators efficently identify potential local impacts and can be proactively linked to decision-making, yet assume complete knowledge of drivers and fail to diagnose impacts on valued components or non-additive effects (Dube and Munkittrick 2001; Dubé 2003). In contrast, effect-based indicators are direct measurements of valued components (*e.g.* species abundance and biodiversity) and inherently capture the effects of multiple drivers (Dube and Munkittrick 2001; Dubé 2003). While effect-based indicators are considered superior to stressor-based indicators, they fail to ascribe observed effects to specific drivers (Dube and Munkittrick 2001; Dubé 2003). Stressor-based and effect-based indicators are therefore both required to diagnose causes of ecosystem change (Dube 2003; Jones 2016). As a knowledge node on stressor-based indicators, *eDrivers* should be weaved with other, comparable, nodes describing valued ecosystem components that can be linked to drivers and allow a better understanding of cumulative impacts. Ultimately, multiple knowledge nodes could be weaved together through social-ecological metanetworks analyses (Dee et al. 2016).} <!-- [@dube2001; @dube2003; @jones2016; @dee2017] -->
+\textcolor{blue}{A caveat to our initiative is that it focuses on a single element required for fully operational impact assessments. Data that provide knowledge on the exposure of ecosystems to drivers are called stressor-based indicators (Dube and Munkittrick 2001; Dubé 2003; Jones 2016). These indicators efficently identify potential local impacts and can be proactively linked to decision-making, yet assume complete knowledge of drivers and fail to diagnose impacts on valued components or non-additive effects (Dube and Munkittrick 2001; Dubé 2003). In contrast, effect-based indicators are direct measurements of valued components (\textit{e.g.} species abundance and biodiversity) and inherently capture the effects of multiple drivers (Dube and Munkittrick 2001; Dubé 2003). While effect-based indicators are considered superior to stressor-based indicators, they fail to ascribe observed effects to specific drivers (Dube and Munkittrick 2001; Dubé 2003). Stressor-based and effect-based indicators are therefore both required to diagnose causes of ecosystem change (Dube 2003; Jones 2016). As a knowledge node on stressor-based indicators, \textit{eDrivers} should be weaved with other, comparable, nodes describing valued ecosystem components that can be linked to drivers and allow a better understanding of cumulative impacts. Ultimately, multiple knowledge nodes could be weaved together through social-ecological metanetworks analyses (Dee et al. 2016).}
 
 Significant effort is still needed to bring our vision to fruition. Foremost
 is to maintain our efforts to foster collaborations, develop platform
@@ -668,6 +663,10 @@ Biodiversity Science (QCBS), Takuvik, and the Notre Golfe networks. This
 research is also sponsored by the NSERC Canadian Healthy Oceans Network and its
 Partners: Department of Fisheries and Oceans Canada and INREST (representing the
 Port of Sept-Îles and City of Sept-Îles).
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+TODO: Remove [@dube2001; @dube2003; @jones2016]
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
