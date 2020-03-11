@@ -21,17 +21,19 @@ rmarkdown::render('./Revisions/Rebuttal.md', 'word_document')
 
 Dear Dr. Otto,
 
-We are submitting a revised version of the manuscript "Next Generation Planning - Structuring and Sharing Environmental Drivers Data for the St. Lawrence System" (ID: 469411) for publication in Frontiers in Marine Science. We would like to thank the reviewer for very constructive comments. We feel that we were able to address all the comments and are now submitting an improved manuscript. Below we explain how we have revised our manuscript based on the reviews.
+We are submitting a revised version of the manuscript “Next Generation Planning - Structuring and Sharing Environmental Drivers Data for the St. Lawrence System” (ID: 469411) for publication in Frontiers in Marine Science. We would like to thank the reviewer for very constructive comments. We feel that we were able to address all the comments and are now submitting an improved manuscript. Below, you will find our responses to the reviewer’s comments and how we have revised our manuscript in view of these.
 
-We thank you for considering our revised manuscript and we are looking forward to hearing from you.
+We thank you for considering our revised manuscript and look forward to hearing back from you.
 
 Best regards,
 
 David Beauchesne
 
 
+# Responses to the reviewer’s comments
+
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-# Question 1
+## Question 1
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
 ***Please summarize the main findings of the study***
@@ -41,14 +43,15 @@ David Beauchesne
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 **Answer:**
 
-> - The material has yet to be released publicly on GitHub as we were waiting for the review process to be completed. We can, however, provide access to the repositories in the interim.
+> - The material has yet to be released publicly on GitHub as we were waiting for the review process to be completed. We can, however, provide access to the repositories for the review process if the reviewer wishes to review the contents.
 
-> - As for the package, we will not be releasing a version on CRAN just yet. The material is not yet implemented on the St. Lawrence Global Observatory (SLGO; https://ogsl.ca/en) servers (our partners on this project) and the data is currently contained directly in the R package. Our goal is to publish the package and submit it for peer-review once the data is available and accessible through SLGO's API. However, the package and the data will be available on Github in the interim.
+> - As for the package and the data, it will be available on Github, but we will not release a version on CRAN just yet. The material is not yet implemented on the St. Lawrence Global Observatory (SLGO; https://ogsl.ca/en) servers (our partners on this project) and the data are currently embedded directly in the R package. Our goal is to publish the package and submit it for peer-review once the data are available and accessible through SLGO's API.
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-# Question 2
+## Question 2
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
 ***Please highlight the limitations and strengths***
@@ -63,15 +66,15 @@ David Beauchesne
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 ***Answer:***
 
-> - We agree with reviewer 1 on the importance of clearly stating that we are solely focusing on drivers in our manuscript. The goal of our manuscript and the *eDrivers* initiative is to facilitate the widespread accessibility of such data for environmental assessments and integrative management. We believe it is clear that we are presenting but one element of a fully operational impact assessment given the title of the manuscript and the 3rd sentence in the abstract: "Our objective in this paper is to systematically characterize the distribution and intensity of drivers in the St. Lawrence System." (lines 38-39). Our goal is not to discuss cumulative effects assessments in particular. It is rather to provide knowledge on an element common to most holistic approaches, *i.e.* drivers characterization. We have strived to make this as clear as possible throughout the manuscript, namely in the introduction and in the perspectives sections, as noted by reviewer 1. As such, and considering the focus of the manuscript, we are hesitant to accept the suggestion of reviewer 1 to discuss cumulative effects assessment, best practices and indicator types at the beginning of the introduction. We feel that, considering the objective of this manuscript, the beginning of the introduction should rather focus on drivers specifically.
+> - We agree with the reviewer about the importance of clearly stating that this manuscript solely focuses on drivers. The goal of this manuscript and the eDrivers initiative is to facilitate the widespread accessibility of such data for environmental assessments and integrative management. We believe that we are clearly stating that the goal of our manuscript is focused on a single element of a fully operational impact assessment given the title of the manuscript and the 3rd sentence of the abstract: “Our objective in this paper is to systematically characterize the distribution and intensity of drivers in the St. Lawrence System.” (lines 38-39). Our goal is not to address cumulative effects. It is rather to provide knowledge on an element common to most holistic approaches, i.e. drivers characterization. We strived to make this as clear as possible throughout the manuscript, namely in the introduction and in the perspectives sections, as noted by the reviewer. As such, and considering the focus of the manuscript, we are hesitant to accept the reviewer’s suggestion to discuss cumulative effect assessment, best practices and indicator types at the beginning of the introduction. We feel that, considering the objective of this manuscript, the beginning of the introduction should focus specifically on drivers.
 
-> - We nonetheless agree with reviewer 1's suggestions. We are therefore proposing the following modifications to the manuscript that we hope consolidates the essence of the suggestions made by reviewer 1:
+> - We, nonetheless, agree with the reviewer’s suggestions and agree that a broader context is necessary to properly position our manuscript in the environmental assessment literature. We are, therefore, proposing the following modifications to the manuscript, as we hope that these will consolidate the essence of the suggestions made by the reviewer:
 
-  > 1. We modified the introduction to broadly state the major steps undertaken in holistic environmental approaches in general (lines 96-101).
+  > 1. We modified the introduction to broadly state the major steps that are generally undertaken in holistic environmental approaches (lines 101-105).
 
-  > 2. We modified the statement of the objectives of the manuscript at the end of the introduction to clearly state that we are focusing on drivers (lines 123-129).
+  > 2. We modified the statement of the objectives that appears at the end of the introduction to clearly state that we are specifically focusing on drivers (lines 130-136).
 
-  > 3. We modified the pre-existing paragraph presenting the importance of valued components in the perspective sections (lines 492-514). It is now presenting *eDrivers* as a suite of stressor-based indicators that hold certain advantages, but fail to capture effects on valued components and non-additive effects. We present effects-based indicators and their importance for understanding cumulative effects. We then argue that both are jointly required to properly diagnose and attribute causes of ecosystem change to stressors (Dubé 2003, Environmental Impact Assessment Review 23(6):723-745; Jones 2016, Environmental Reviews 24(2):187-204).
+  > 3. We modified the paragraph in the perspective sections (lines 496-518) in which the importance of valued components is discussed. It now presents eDrivers as a suite of useful, stressor-based indicators that, nevertheless,  fail to capture effects on valued components and non-additive effects. We present effects-based indicators and discuss their importance for understanding cumulative effects. We then argue that both are required to properly diagnose and attribute causes of ecosystem change to stressors (Dubé 2003, Environmental Impact Assessment Review 23(6):723-745; Jones 2016, Environmental Reviews 24(2):187-204).
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
@@ -83,15 +86,17 @@ David Beauchesne
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 ***Answer:***
 
-> - We begin by thanking the reviewer for pointing out this obvious weakness in the manuscript. We realize now that, even though we did not want to mislead readers in thinking we were evaluating driver interactions, we are in fact doing just that. As mentioned by reviewer 1, driver co-occurrence provides no information on valued component-specific driver interactions and non-additive effects. Under the assumption that driver co-occurrence is necessary for driver interactions to exist, we believe it is reasonable to predict that driver interactions and non-additive effects will most likely be observed in areas where drivers overlap at high relative intensities. These areas indeed delineate where the effects of both drivers are most likely to impact valued components simultaneously. In presenting sections 3.4 and 4.2, our goal was to provide an illustration of how a simple two-drivers case could be used to identify areas of such high relative intensity driver overlap. This should be used as a transition to the more integrative cumulative footprint and hotspot indicators. As rightfully identified by reviewer 1, however, the manuscript is indeed misleading on the topic of driver interactions. We have therefore made the following modifications to the manuscript:
+> - We thank the reviewer for pointing out this obvious weakness of the manuscript. We now realize that, even though we did not want to mislead readers in thinking we were evaluating driver interactions, we were doing just that. As noted by the reviewer, driver co-occurrence provides no information on valued component-specific driver interactions and non-additive effects. That said, driver co-occurrence is necessary for interactions to exist, and therefore it is expected that interactions and non-additive effects will be most likely observed in areas where drivers overlap at high relative intensities. These areas delineate where the effects of both drivers are most likely to impact valued components simultaneously. In sections 3.4 and 4.2, we illustrate how a simple two-drivers case could be used to identify areas of such high relative intensity driver overlap. This example should serve as a stepping stone to the integrative cumulative footprint and hotspot indicators. As rightfully noted by the reviewer, however, the manuscript is misleading on the topic of driver interactions. We have therefore made the following modifications to the manuscript:
 
   > 1. We removed objective 2 from the manuscript and mentions of driver interactions, except in the context of discussing the likelihood of observing interactions in areas of driver co-occurrence.
 
-  > 2. The methodology and results/discussions sections on driver interactions were moved to sections 3.3 and 4.1, respectively, and renamed *Driver co-occurrence*. We then modified the methods section as a simplified example of driver co-occurrence (lines 184-195). However, we did not modify the results/discussion section. The only mention of driver interactions was in the title itself. In the discussion, we merely discuss the areas of high intensity co-occurrence between the two drivers and present adverse effects that these drivers may have on species individually and simultaneously. We did add a closing statement to the section stating that individual and interactive effects of both drivers are species- and community-dependent and that the co-occurrence of drivers in itself is not an evidence of driver interaction. We then state that assuming that driver co-occurrence is a prerequisite for driver interactions, however, it is reasonable to expect interactions to occur in areas where both drivers co-occur at high relative intensities (lines 274-277).
+  > 2. The methodology and results/discussions sections on driver interactions were moved to sections 3.3 and 4.1, respectively, and renamed Driver co-occurrence. We then modified the methods section and provided a simplified example of driver co-occurrence (lines 194-204). We did not, however, modify the results/discussion section. The only mention of driver interactions was in the title itself. In the discussion, we merely discuss the areas of high intensity of driver co-occurrence and describe individual and combined adverse effects that these drivers may have on species.
 
-> - Ultimately, this portion of the manuscript should serve as a simple illustration to better understand the complete cumulative footprint indicators. In this sense, if the reviewer still feels that proposed changes are not sufficient, we propose removing these sections from the manuscript entirely.
+  > 3. We clarified our stance on driver co-occurrence and risk of interactions in the introduction, noting that individual and interactive effects of both drivers are species- and community-dependent and that the co-occurrence of drivers in itself is not evidence of driver interaction. We then state that, assuming driver co-occurrence is a prerequisite for driver interactions, it expected that interactions will occur in areas where both drivers co-occur simultaneoustly (lines 93-96).
 
-> - As for providing flexibility in indicator definition, it is a feature that we wish to provide in future iterations of the package and the platform. We would, however, rather not include such enhancements at this point, as they are more technical in nature and we feel that they should not prevent us from publishing this work. Instead, we added a statement that presents this idea as a perspective and future work to be accomplished (lines 520-522), as suggested by reviewer 1.
+> - Ultimately, this portion of the manuscript should serve as a simple illustration to better understand the complete cumulative footprint indicators. In this sense, if the reviewer still feels that the proposed changes are insufficient, we are willing to remove these sections from the manuscript.
+
+> - As for providing flexibility in indicator definition, it is a feature that we wish to provide in future iterations of the package and platform. We would, however, rather not include such enhancements in this manuscript, as they are more technical in nature and we feel that they should not prevent us from publishing this work. Instead, we present this idea as a perspective and of future work (lines 524-526), as suggested by the reviewer.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
@@ -102,13 +107,14 @@ David Beauchesne
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 ***Answer:***
 
-> - We agree with reviewer 1 on the importance of valued components for cumulative effects assessments. Presenting a full cumulative impact assessments and defining valued components are, however, not the objectives of this manuscript, nor is it to discuss cumulative impacts in particular. By themselves, we believe stressor-based indicators offer valuable insights in the dynamics of a system which can help managers in prioritizing decision-making and scientists in targeting specific areas for *in situ* measurements for hypothesis testing, especially when data on valued components are lacking.  Furthermore, the choices of valued components are fully dependent on the objective of a particular assessment or management scheme. In our experience, time and money is spent on recurring initiatives that seek to characterize sources of stress in a system for impacts assessments and integrative management. Our goal was therefore to build an initiative that would limit this and provide access to formatted and comparable knowledge on sources of stress that are typically used for impact assessments and integrative management. This integrative dataset can then be used and adapted to the need of a user to assess impacts on a single or multiple valued components of interest, or the user can identify gaps in knowledge in the platform and ultimately contribute to the knowledge contained in the platform. We were therefore very deliberate in our decision not to include and discuss specific valued components. This manuscript is in fact part of a broader project that aims at evaluating cumulative impact on the ecological communities of the St. Lawrence. The description of drivers will thus be used on specific valued components in the St. Lawrence System.
+> - We agree with the reviewer on the importance of valued components for cumulative effects assessments. Presenting a full cumulative impact assessment and defining valued components are, however, not the objectives of this manuscript or of the platform, nor is it to discuss cumulative impacts in particular. By themselves, we believe stressor-based indicators offer valuable insights into the dynamics of a system which can help managers to prioritize decision-making and scientists in target specific areas for in situ measurements for hypothesis testing, especially when data on valued components are lacking. Furthermore, the choices of valued components are fully dependent on the objective of a particular assessment or management scheme. In our experience, time and money are spent on recurring initiatives that seek to characterize sources of stress in a system for impacts assessments and integrative management. Our goal was therefore to build an initiative that would curb this approach and provide access to formatted and comparable knowledge on sources of stress that are typically used for impact assessments and integrative management. This integrative dataset can then be used and adapted to the need of a user to assess impacts on a single or multiple valued components of interest, or the user can identify gaps in knowledge in the platform and ultimately contribute to the knowledge contained in the platform. We were therefore very deliberate in our decision not to include and discuss specific valued components. This manuscript is part of a broader project that aims at evaluating cumulative impact on the ecological communities of the St. Lawrence. The description of drivers will thus be used on specific valued components in the St. Lawrence System.
 
-> - As proposed by reviewer 1, we had already included a paragraph on the importance of valued components and their vulnerability to sources of stress in the conclusion. We however realize now that it was underwhelming in its ability to provide perspective and direction as to how *eDrivers* may be used in the future. We therefore extended this paragraph, also in response to reviewer 1's first comment, to better discuss the significance of valued components and the different types of indicators for cumulative effects assessment (lines 492-514).
+> - We already had included a paragraph on the importance of valued components and their vulnerability to sources of stress. We now realize, however, that it was ineffectual to provide perspective and direction as to how eDrivers may be used in the future. We therefore extended this paragraph, also in response to the reviewer’s first comment, to better address the significance of valued components and the different types of indicators used for cumulative effects assessment (lines 496-518).
+-
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-# Question 3
+## Question 3
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
 ***Please provide your detailed review report to the editor and authors (including any comments on the Q4 Check List):***
@@ -174,13 +180,13 @@ David Beauchesne
 *Lines 327-328: fix language issue.*
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
-> - We have modified the sentences on lines 327-328 (now lines 344-348). "Of particular concern are threat complexes 3 and 6, which are the two most exposed complexes in the St. Lawrence and are characterized by distinct cumulative exposure regimes between them, they capture most of the coastal and offshore hotspots identified in the St. Lawrence." now becomes "Threat complexes 3 and 6 capture most coastal and offshore hotspots and are the two most exposed complexes in the St. Lawrence."
+> - We have modified the sentences on lines 327-328 (now lines 348-352). "Of particular concern are threat complexes 3 and 6, which are the two most exposed complexes in the St. Lawrence and are characterized by distinct cumulative exposure regimes between them, they capture most of the coastal and offshore hotspots identified in the St. Lawrence." now becomes "Threat complexes 3 and 6 capture most of the coastal and offshore hotspots and are the two most exposed complexes in the St. Lawrence."
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 *Figure 5 caption: tp becomes to*
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
-> - Figure caption was modified accordingly.
+> - The figure caption was modified accordingly.
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 *Please check Appendix carefully for language errors. In addition, Appendix can be tightened up.*
@@ -192,7 +198,7 @@ David Beauchesne
 
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-# Question 4
+## Question 4
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
 ***Please comment on the methods, results and data interpretation. If there are any objective errors, or if the conclusions are not supported, you should detail your concerns.***
@@ -206,7 +212,7 @@ David Beauchesne
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-# Question 5
+## Question 5
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
 *Is the English language of sufficient quality?
@@ -238,7 +244,7 @@ David Beauchesne
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 ***Answer:***
 
-> - The formatted driver data will be available through the package and the raw data will be archived on Zenodo and accessible upon request to the authors. The archive is ready to be published, but we are waiting for the publication process to be completed so that the proper citation can be referenced with the material. Similarly, the workflows used for the first iteration of the platform will be released and archived on Zenodo with the paper publication.
+> - The formatted driver data will be available through the package and the raw data will be archived on Zenodo and accessible upon request to the authors. The archive is ready to be published, but we are waiting for the publication process to be completed so that the proper citation can be referenced with the material. Likewise, the workflows used for the first iteration of the platform will be released and archived on Zenodo with the paper publication.
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  -->
 
