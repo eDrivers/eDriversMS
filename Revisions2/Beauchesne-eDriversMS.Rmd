@@ -1,5 +1,5 @@
 ---
-title: Next Generation Planning - Structuring and Sharing Environmental Drivers Data for the St. Lawrence System
+title: Next Generation Planning -- Characterizing Exposure to and Shared Knowledge on Drivers of Ecological Change in the St. Lawrence System
 author: David Beauchesne^1,2,\*^, Rémi M. Daigle^2^, Steve Vissault^3^, Dominique Gravel^3^, Andréane Bastien^4^, Simon Bélanger^5^, Pascal Bernatchez^5^, Marjolaine Blais ^6^, Hugo Bourdages^6^, Clément Chion^7^, Peter S. Galbraith^6^, Benjamin Halpern^8,9^, Camille Lavoie^2^, Christopher W. McKindsey^6^, Alfonso Mucci^10^, Simon Pineault^11^, Michel Starr^6^, Anne-Sophie Ste-Marie^4^, Philippe Archambault^2^
 fontsize: 12pt
 font-family: Times New Roman
@@ -29,8 +29,18 @@ link-citations: yes
 ---
 
 <!--
-rmarkdown::render('./Revisions/Beauchesne-eDriversMS.Rmd', 'pdf_document')
-rmarkdown::render('./eDriversMS-v2.rmd', 'word_document')
+rmarkdown::render('./Revisions2/Beauchesne-eDriversMS.Rmd', 'pdf_document')
+-->
+
+<!--
+To discuss with co-authors
+
+- New article title
+- Should we present how the platform is used in the analyses or really keep
+  that portion fully separate? If we include it, modify answer to question 2
+  comment 1
+
+
 -->
 
 <!-- Setting up parameters for code snippet presented in Box 1 -->
@@ -71,23 +81,29 @@ david.beauchesne@uqar.ca \newline
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 The St. Lawrence is a vast and complex socio-ecological system providing a
-wealth of services sustaining numerous economic sectors. These ecosystems are
+wealth of services sustaining numerous economic sectors. ~~\textcolor{red}{These ecosystems are}~~
+\textcolor{blue}{This ecosystem is}
 subject to significant human pressures that overlap and potentially interact
 with climate driven environmental changes. Our objective in this paper is to
 systematically characterize the distribution and intensity of drivers \textcolor{blue}{of change} in the
-St. Lawrence System. To do so, we launch *eDrivers*, an open knowledge
+St. Lawrence System. ~~To do so, we launch *eDrivers*, an open knowledge
 platform gathering experts committed to structuring, standardizing and sharing
-knowledge on drivers \textcolor{blue}{of change} in support of science and management. We gathered data on
+knowledge on drivers \textcolor{blue}{of change} in support of science and management.~~ We gathered data on
 22 coastal, climate, fisheries and marine traffic drivers through
 collaborations, existing environmental initiatives and open data portals. We
 show that few areas of the St. Lawrence are free of cumulative exposure. The
-Estuary, the Anticosti Gyre and coastal areas are particularly exposed,
+Estuary, ~~the~~ Anticosti Gyre and coastal areas are particularly exposed,
 especially in the vicinity of urban centers. We identified 6 areas of distinct
 cumulative exposure regime that show that certain drivers \textcolor{blue}{of change} typically co-occur
 in different regions of the St. Lawrence and that coastal areas are exposed to
 all driver types. Of particular concern are two threat complexes capturing
 most exposure hotspots that show the convergence of contrasting exposure
-regimes at the head of the Laurentian Channel. *eDrivers* was built on a
+regimes at the head of the Laurentian Channel.
+\textcolor{blue}{Sharing the knowledge acquired emerged as a priority to minimize future
+environmental assessment efforts. We thus launch *eDrivers*, an open knowledge
+platform gathering experts committed to structuring, standardizing and sharing
+knowledge on drivers of change in support of science and management.}
+*eDrivers* was built on a
 series of guiding principles upholding existing data management and open
 science standards. We therefore expect it to evolve through time to address
 knowledge gaps and refine current driver layers. Ultimately, we believe that
@@ -119,7 +135,7 @@ hydrocarbon potential [@beauchesne2016; @schloss2017; @archambault2017]. With
 major investments recently made and more forthcoming in economic and
 infrastructure development and research [*e.g.* @governmentofquebec2015; @rqm2018], an intensification of the human footprint is likely in the St. Lawrence System.
 
-As elsewhere in the world [see @halpern2015a], this intensifying human footprint
+As elsewhere in the world [see @halpern2015a; @halpern2019], this intensifying human footprint
 will likely result in increasingly intricate environmental exposure regimes,
 *i.e.* suites of overlapping \textcolor{red}{\sout{and potentially interacting}} environmental drivers \textcolor{blue}{of change}
 threatening ecosystems, habitats or ecological communities. Drivers \textcolor{blue}{of change}, often referred to as stressors or pressures \textcolor{blue}{and hereafter called drivers for simplicity}, are any externalities that affect
@@ -147,26 +163,34 @@ data and knowledge on multiple drivers in a comparable and interoperable way
 remain conspicuously missing [but see @halpern2015]. This is in spite of
 integrated management and assessment approaches needing efficient data reporting,
 standardized data management practices and tools tailored to the study of the
-effects of multiple drivers [@dafforn2016; @stock2018]. An additional objective
-thus emerged in the process of addressing our initial goals: \textcolor{red}{\sout{sharing the knowledge gathered through the description of drivers in the St. Lawrence.}} \textcolor{blue}{sharing information about the distribution and intensity of drivers of change in the St.Lawrence.}
+effects of multiple drivers [@dafforn2016; @stock2018].
+~~An additional objective
+thus emerged in the process of addressing our initial goals:
+sharing information about the
+distribution and intensity of drivers of change in the St.Lawrence.~~
 
-Our main objective in this study is to characterize the distribution and
-intensity of drivers in the St. Lawrence. More specifically, we aim to: 1)
+Our main ~~objective~~ \textcolor{blue}{goal} in this study is to characterize the distribution and
+intensity of drivers in the St. Lawrence. More specifically, ~~we aim~~ \textcolor{blue}{our objectives are} to: 1)
 identify areas of high cumulative exposure\textcolor{red}{\sout{, 2) identify drivers that are likely to interact in the St. Lawrence}} and \textcolor{red}{\sout{3)}} \textcolor{blue}{2)} characterize areas with similar cumulative exposure regimes.
 \textcolor{red}{\sout{Here we focus solely on drivers, one of four elements required to evaluate environmental impacts, *i.e.* drivers, ecosystem components of interest (*e.g.* habitats or species) and the exposure and the vulnerability of the ecosystem components to drivers.}}
 \textcolor{blue}{Here, we focus solely on drivers, aiming at better understanding their distribution in the St. Lawrence and at facilitating the widespread availability of their characterization for holistic assessments and management approaches.}
-We achieve these objectives with the development of an
-open knowledge platform named *eDrivers*. The platform was designed to
+\textcolor{blue}{An additional objective emerged while addressing the main objective of this
+manuscript: sharing information about the distribution and intensity of drivers of change in the St.Lawrence.}
+We achieve ~~these objectives~~ \textcolor{blue}{this} with the development of an
+open knowledge platform,~~named~~ *eDrivers*,~~. The platform was~~ designed to
 facilitate collaboration, real-time assessments of cumulative exposure and to
-evolve with the addition of information and threats to the St-Lawrence ecosystems.
+evolve ~~with the addition of information and threats to~~
+\textcolor{blue}{as knowledge accumulates and new threats emerge in}
+the St-Lawrence ecosystems.
+\textcolor{blue}{Here, we present its guidng principles and accompanying tools.}
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 # Materials and Methods
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-## Estuary and Gulf of St. Lawrence
+## ~~Estuary and Gulf of St. Lawrence~~ \textcolor{blue}{St. Lawrence System}
 
-The St. Lawrence System is formed by the Estuary and the Gulf of St. Lawrence
+The St. Lawrence System is formed by the \textcolor{blue}{St. Lawrence} Estuary and the Gulf of St. Lawrence
 (Figure \ref{egsl}). The Estuary is defined by the seawater limit
 close to Îles d'Orléans to the west and by its connexion to the Gulf
 near Pointe-des-Monts.
@@ -204,24 +228,38 @@ and the Southern Gulf [@statistics-canada2017].
 ## Drivers
 
 \textcolor{red}{\sout{The list of drivers for which we sought data was informed by}} \textcolor{blue}{Drivers selection was informed by} a global
-cumulative impact assessment initiative [@halpern2008a; @halpern2015a] \textcolor{blue}{and available from the National Center for Ecological Analysis and Synthesis (NCEAS) online data repository (Halpern et al. 2015)},
+cumulative impact assessment initiative [@halpern2008a; @halpern2015a; @halpern2019] \textcolor{blue}{and available from the National Center for Ecological Analysis and Synthesis (NCEAS) online data repository (Halpern et al. 2015)},
 regional holistic evaluations of the state of the St. Lawrence [@dufour2007;
 @benoit2012], and communications with regional experts (Table 1).
-\textcolor{red}{\sout{We integrated datasets from regional experts and also use global data from the global cumulative impact assessment initiative [@halpern2008a; @halpern2015a]  available from the National Center for Ecological Analysis and Synthesis (NCEAS) online data repository [Table 1; @halpern2015].}} We selected global data that were
+\textcolor{red}{\sout{We integrated datasets from regional experts and also use global data from the global cumulative impact assessment initiative [@halpern2008a; @halpern2015a]  available from the National Center for Ecological Analysis and Synthesis (NCEAS) online data repository [Table 1; @halpern2015].}}
+~~We selected global data that were
 unavailable at the regional scale and that were available at a resolution
-adequate for use at the scale of the St. Lawrence (*e.g.* marine pollution).
+adequate for use at the scale of the St. Lawrence (*e.g.* marine pollution).~~
+\textcolor{blue}{Where regional data on drivers were unavailable, available global data at a resolution adequate for the scale of the St. Lawrence System were used instead (*e.g.* marine pollution).}
 
 We characterized the intensity and distribution of 22 drivers
-(Table 1;). Drivers incorporated in the analyses are varied in origin,
+(Table 1). Drivers incorporated in the analyses are varied in origin,
 *i.e.* from terrestrial (*e.g.* nutrient input) to marine (*e.g.* shipping),
 and from large scale biophysical processes (*e.g.* temperature anomalies) to
 localized anthropogenic activities (*e.g.* fisheries). Drivers were divided
 into 4 groups: coastal, climate, fisheries and marine traffic (Table 1). All
 data layers and methodologies are described in the supplementary materials.
 
-Drivers with non-normal frequency distributions were log-transformed,
-\textcolor{blue}{as in Halpern et al. 2008, to minimize the impact of extreme outliers that may or may not be real observations} (Figure S1)\textcolor{blue}{,} and all drivers were scaled between 0 and 1 to allow driver comparisons. The 99th quantile of individual driver distribution was used as the upper bound for scaling \textcolor{red}{\sout{to control for extreme values and produce maps of individual drivers (Figure S2)}}. All drivers were embedded in a regular grid composed of 245604 $1 km^2$ hexagonal cells to construct the integrated dataset used for the
-analyses \textcolor{blue}{(Figure S2)}.
+~~Drivers with non-normal frequency distributions were log-transformed, as in
+Halpern et al. 2008, to minimize the impact of extreme outliers that may or may
+not be real observations (Figure S1), and all drivers were scaled between 0 and
+1 to allow driver comparisons. The 99th quantile of individual driver
+distribution was used as the upper bound for scaling.~~
+\textcolor{blue}{As in Halpern et al. 2019, drivers with non-normal frequency distributions were log-transformed
+to avoid underestimating intermediate driver values. All drivers were also scaled
+between 0 and 1 to allow driver comparisons. The 99th quantile of individual
+driver distribution was used as the upper bound for scaling to control for
+extreme values that may or may not be real observations.}
+~~All drivers were embedded in a regular grid composed of 245604 $1 km^2$
+hexagonal cells to construct the integrated dataset used for the analyses
+(Figure S2).~~
+\textcolor{blue}{The St. Lawrence System was divided into a regular grid of
+1 $km^2$ hexagonal cells in which all drivers were integrated (Figure S2)}
 
 ## \textcolor{red}{\sout{Driver interactions}} \textcolor{blue}{Driver co-occurrence}
 
@@ -323,7 +361,7 @@ computation time was manageable.
 
 ## \textcolor{red}{\sout{Driver interactions}} \textcolor{blue}{Driver co-occurrence}
 
-Hypoxia is mainly distributed in the Laurentian, Anticosti and Esquiman Channels, with the head of the Channels most exposed (Figure \ref{kernel}A). Demersal destructive fisheries are located along the Laurentian Channel, the heads of the Anticosti and Esquiman Channels and around the Magdalen Islands (Figure \ref{kernel}B). By combining both drivers, we can observe that hypoxia and demersal destructive fisheries co-occur mostly at high relative intensity (Figure \ref{kernel}D) in the vicinity of the Anticosti Gyre and the heads of the Esquiman and Anticosti Channels (Figure \ref{kernel}C, Box 1).
+Hypoxia is mainly distributed in the Laurentian, Anticosti and Esquiman Channels, with the head of the Channels most exposed (Figure \ref{kernel}A). Demersal destructive fisheries are located along the Laurentian Channel, the heads of the Anticosti and Esquiman Channels and around the Magdalen Islands (Figure \ref{kernel}B). By combining both drivers, we can observe that hypoxia and demersal destructive fisheries co-occur mostly at high relative intensity (Figure \ref{kernel}D) in the vicinity of the Anticosti Gyre and the heads of the Esquiman and Anticosti Channels (Figure \ref{kernel}C~~, Box 1~~).
 
 Fisheries in the St. Lawrence have historically affected biodiversity distribution and habitat quality [@moritz2015]. Concurrently, hypoxia decreases overall habitat quality, but triggers species-dependent responses ranging from adaptation [*e.g.* northern shrimp *Pandalus borealis* and Greenland halibut *Reinhardtius hippoglossoides*; @pillet2016] to reduced growth rates [@dupont-prinet2013] and avoidance of oxygen-depleted habitats [*e.g.* Atlantic cod *Gadus morhua*; @chabot2008] to increased mortality [*e.g.* sessile benthic invertebrates; @eby2005; @gilbert2007; @belley2010]. Certain species may thus be adversely affected by fisheries and withstand hypoxia but still experience a decrease in prey availability, while others may be deleteriously affected by the compounded effect of both drivers [@deleo2017].
 
@@ -444,7 +482,7 @@ sharing knowledge on the distribution and intensity of drivers and on gathering
 a community of experts committed to structuring, standardizing and sharing
 knowledge on drivers in support of science and management. In launching this
 initiative, our objective is to uphold the highest existing standards of data
-management and open science. We identified four guiding principles to meet this
+management and open science. We identified four guiding principles \textcolor{blue}{(Sections 5.1 to 5.4)} to meet this
 objective and that guide the structure of the platform (Figure \ref{diag}).
 
 
@@ -603,7 +641,7 @@ particularly exposed to all types of drivers and that multiple drivers
 typically co-occur in space. These results allow us to efficiently identify
 areas in need of heightened scrutiny from a science and management perspective.
 
-Through *eDrivers*, these observations will be iteratively improved towards an increasingly robust assessment of cumulative exposure and threat complexes as gaps in knowledge are addressed or approaches to describe drivers are refined. Arguably, the most meaningful benefit anticipated from *eDrivers* will be the gain in efficient access to comparable data-based knowledge on the exposure of ecosystems to multiple threats. This could pay quick scientific and management dividends by drawing on the knowledge and efforts of a wide range of contributors, by expanding avenues of scientific inquiry, by decreasing overall effort duplication and research costs, and by increasing research efficiency [@franzoni2014].
+Through *eDrivers*, these observations will be iteratively improved towards an increasingly robust assessment of cumulative exposure and threat complexes as gaps in knowledge are addressed or approaches to describe drivers are refined. Arguably, the most meaningful benefit anticipated from *eDrivers* will be the gain in efficient access to comparable data-based knowledge on the exposure of ecosystems to multiple threats. \textcolor{blue}{We provide an example of the ease with which this can be accomplished using the \textit{eDrivers} R package to reproduce figure \ref{kernel} (Box 1).} This could pay quick scientific and management dividends by \textcolor{blue}{efficiently} drawing on the knowledge and efforts of a wide range of contributors, by expanding avenues of scientific inquiry, by decreasing overall effort duplication and research costs, and by increasing research efficiency [@franzoni2014].
 
 Critically, *eDrivers* will allow the scientific and governmental communities to identify key knowledge gaps that will assist in prioritizing and optimizing research efforts. Ultimately, we believe that *eDrivers* will operationalize evidence-based decision-making by streamlining data management and research, allowing science output to be available and interpretable on a time scale relevant to management [see @sutherland2004; @reichman2011]. The platform will thus greatly facilitate the application of broad scale, holistic research and management approaches such as marine spatial planning, ecosystem-based management, marine spatial planning and strategic environmental assessments [*e.g.* @rice2011; @halpern2015a; @jones2016].
 

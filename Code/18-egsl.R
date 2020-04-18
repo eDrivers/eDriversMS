@@ -1,3 +1,4 @@
+# source('./Code/18-egsl.R')
 # ~~~~~~~~~~~~~~~~~~~ PARAMETERS ~~~~~~~~~~~~~~~~~~~ #
 source('./code/2-param.R')
 
@@ -11,21 +12,22 @@ bathy <- st_transform(bathy, crs = 4326)
 deph <- bathy$DEPH
 
 
+library(raster)
+r <- raster(ncol=180, nrow=180)
+extent(r) <- extent(bathy)
+r <- fasterize::fasterize(bathy, r, field = 'DEPH')
+r <- mask(r, egslSimple)
 
-
-
-
-
-# ~~~~~~~~~~~~~~~~~~~ FOOTPRINT ~~~~~~~~~~~~~~~~~~~ #
+# ~~~~~~~~~~~~~~~~~~~ EGSL ~~~~~~~~~~~~~~~~~~~ #
 # Layout
 pal <- colorRampPalette(c('#E2FCF6', '#1B7CAA'))
 cols <- pal(101)[((deph/max(deph, na.rm = T))*100)+1]
 
 cexMain <- 1
 cexMain2 <- .75
-png('./figures/egsl.png', width = 1280, height = 920, res = 300, pointsize = 6)
-# jpeg('./figures/egsl.jpg', width = 1280, height = 920, res = 300, pointsize = 6)
-# par(bg = colBack)
+# png('./figures/egsl.png', width = 1280, height = 920, res = 300, pointsize = 6)
+jpeg('./figures/egsl.jpg', width = 1280, height = 920, res = 300, pointsize = 6)
+par(bg = '#ffffff')
 plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          cols       = c('#00000000',off,off),
          borders    = c('#00000000',focus,focus),
@@ -36,10 +38,13 @@ plotEGSL(layers     = c('egslSimple', 'canada','usa'),
          northArrow = F,
          prj        = slmetaPrj('world'),
          extent     = extFig)
-plot(st_geometry(bathy), add = T, col = cols, border = cols, lwd = .1)
+
+# plot(st_geometry(bathy), add = T, col = cols, border = cols, lwd = .1)
+# plot(st_geometry(bathy), add = T, col = cols, border = 'transparent', lwd = .1)
+image(r, col = pal(100), axes = F, ylab = '', xlab = '', add = T)
 plot(st_geometry(egslSimple), col = 'transparent', border = focus, lwd = .75, add = T)
-plot(st_geometry(canada), col = off, border = focus, lwd = .75, add = T)
-plot(st_geometry(usa), col = off, border = focus, lwd = .75, add = T)
+# plot(st_geometry(canada), col = off, border = focus, lwd = .75, add = T)
+# plot(st_geometry(usa), col = off, border = focus, lwd = .75, add = T)
 box2("1234", lwd = 3)
 # Legend
 legendEGSL(range = c(0, 525),
@@ -50,6 +55,7 @@ legendEGSL(range = c(0, 525),
            cexSub = .65,
            n = 6)
 
+colText <- '#717171'
 
 city <- data.frame(latitude = numeric(0),
                    longitude = numeric(0),
@@ -91,7 +97,8 @@ for(i in 1:nrow(city)) {
   text(x = city$X[i] + city$xGap[i]*xR,
        y = city$Y[i] + city$yGap[i]*yR,
        labels = city$city[i],
-       cex = .85,
+       cex = .8,
+       col = colText,
        adj = c(city$adj1[i], city$adj2[i]))
 }
 # Lines for text
@@ -103,19 +110,21 @@ j <- 6
 lines(x = c(city$X[j],city$X[j]+city$xGap[j]*xR-.00076*xR), y = c(city$Y[j], city$Y[j]+city$yGap[j]*yR-.006*yR))
 
 # Text
-text(y = 49.5, x = -62.95553, labels = 'Anticosti', srt = -28, cex = .85)
-text(y = 48.85, x = -62.95553, labels = 'Laurentian Channel', srt = -28, cex = .85)
-text(y = 49.85, x = -62.25, labels = 'Anticosti Channel', srt = -15, cex = .85)
-text(y = 49.85, x = -59, labels = 'Esquiman Channel', srt = 45, cex = .85)
-text(y = 48.7, x = -68.5, labels = 'Estuary', srt = 40, cex = .85)
-text(y = 47.45, x = -63.25, labels = 'Magdalen\nShallows', srt = 0, cex = .85, adj = c(.5,.5))
-text(y = 47.55, x = -60.1 , labels = 'Cabot\nStrait', srt = 0, cex = .85, adj = c(.5,.5))
-text(y = 51.75, x = -56.25, labels = 'Belle-Isle\nStrait', srt = 0, cex = .85, adj = c(.5,.5))
-text(y = 51.75, x = -56.25, labels = 'Belle-Isle\nStrait', srt = 0, cex = .85, adj = c(.5,.5))
-text(y = 46.6, x = -59.8, 'Prince Edward\nIsland', srt = 0, cex = 1, adj = c(0,.5), font = 2)
-text(y = 48.6, x = -58, 'Newfoundland', srt = 0, cex = 1, adj = c(0,.5), font = 2)
-text(y = 46.4, x = -67.75, 'New-Brunswick', srt = 0, cex = 1, adj = c(0,.5), font = 2)
-text(y = 50.9, x = -68.5, 'Québec', srt = 0, cex = 1, adj = c(0,.5), font = 2)
-text(y = 45.6, x = -59.2, 'Nova-Scotia', srt = 0, cex = 1, adj = c(0,.5), font = 2)
+text(y = 49.5, x = -62.95553, labels = 'Anticosti', srt = -28,col = colText, cex = .8)
+text(y = 49.3, x = -64.25, labels = 'Laurentian\nChannel', srt = -28,col = colText, cex = .8)
+text(y = 49.85, x = -62.25, labels = 'Anticosti Channel', srt = -15,col = colText, cex = .8)
+text(y = 49.85, x = -59, labels = 'Esquiman Channel', srt = 45,col = colText, cex = .8)
+text(y = 47.45, x = -63.25, labels = 'Magdalen\nShallows', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
+text(y = 47.55, x = -60.1 , labels = 'Cabot\nStrait', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
+text(y = 51.75, x = -56.25, labels = 'Belle-Isle\nStrait', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
+text(y = 51.75, x = -56.25, labels = 'Belle-Isle\nStrait', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
+text(y = 46.6, x = -59.8, 'Prince Edward\nIsland', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
+text(y = 48.6, x = -58, 'Newfoundland', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
+text(y = 46.4, x = -67.75, 'New-Brunswick', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
+text(y = 50.9, x = -68.5, 'Québec', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
+text(y = 45.6, x = -59.2, 'Nova-Scotia', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
+text(y = 52, x = mean(par('usr')[1:2]), 'St. Lawrence\nSystem', col = '#000000', cex = 1.3, adj = c(.5,.5), font = 4)
+text(y = mean(par('usr')[3:4])-.25, x = mean(par('usr')[1:2])+1.5, 'Gulf of\nSt. Lawrence', col = '#000000', cex = 1, adj = c(.5,.5), font = 4)
+text(y = 49.1, x = -67.5, labels = 'St. Lawrence Estuary', srt = 35, col = '#000000', cex = 1, font = 4)
 
 dev.off()
