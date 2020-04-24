@@ -66,11 +66,11 @@ David Beauchesne
 
 > 1. We propose an alternate title for the manuscript: *"Characterizing Exposure to and Sharing Knowledge of Drivers of Environmental Change in the St. Lawrence System"*.
 
-> 2. We modified the abstract to mirror the structure of the paper and introduce the *eDrivers* initiative to conclude the abstract (Lines 53 to 56).
+> 2. We modified the abstract to mirror the structure of the paper and introduced the *eDrivers* initiative to conclude the abstract (Lines 53 to 56).
 
 > 3. We modified the statement of the manuscript's objective at the end of the introduction (lines 132 to 147).
 
-> - How *eDrivers* is used is not the focus of the manucript. As such, we would prefer not to expand extensively on this particular point in the main text body. We did, however, extend and conclude the section presenting the initiative with a short paragraph stating how the package was used for the analysis. We also provide a link to the github repository for this manuscript, which includes the code to reproduce all the analyses and figures. We also contextualize the rationale behind presenting Box 1 and removed reference to Box 1 from the results section. The goal of Box 1 is to introduce how the initiative and its accompanying tools can increase the ease with which holistic analyses can be performed with a simple coded and reproducible example (lines 508 to 513).
+> - How *eDrivers* is used is not the focus of the manuscript. As such, we would prefer not to expand extensively on this particular point in the main text body. We did, however, extend and conclude the section presenting the initiative with a short paragraph stating how the package was used for the analysis. We also provide a link to the github repository for this manuscript, which includes the code to reproduce all the analyses and figures. We also contextualize the rationale behind presenting Box 1 and removed reference to Box 1 from the results section. The goal of Box 1 is to introduce how the initiative and its accompanying tools can increase the ease with which holistic analyses can be performed with a simple coded and reproducible example (lines 508 to 513).
 
 
 ***Comment 2:***
@@ -79,7 +79,7 @@ David Beauchesne
 
 > - The reviewer is right about terminology issues: we loosely used certain terms such as *environmental drivers* in place of *drivers of environmental change*, and duplicated the terminology for other aspects of our work, such as *cumulative exposure regimes* and *threat complexes*; this awkwardly conveys our message. As such, we agree with the reviewer's comment and modified the manuscript to clarify the terminology used throughout the manuscript.
 
-> - However, we avoided categorizing drivers of environmental change using the DPSIR framework. While the framework is widely used globally, it has numerous shortcomings (*e.g.* Gari et al. 2015, 10.1016/j.ocecoaman.2014.11.013). Namely, the difficulties in properly defining the components of the framework, the unclear classification of exogenic or natural drivers like climate change, and the context-dependencies of framework categories. For example, Dempsey et al. (2018; 10.1016/j.ecolind.2016.12.011) found it more useful to classify drivers of change as exogenic or endogenic (see Elliot et al. 2011, 10.1016/j.marpolbul.2010.11.033) because the indicators they used could be classified differently depending on the context or ecosystem in which they were studied. As an example, hypoxic environments may be considered a state if the goal is to study the impacts of climate change on ecosystems, or a pressure if the goal is to study the impacts of climate change on benthic communities. Furthermore, the DPSIR framework is used to structure initiatives that evaluate the chain of causal links between driving forces and responses (Kristensen et al. 2014, National Environmental Research Institute, Denmark). We do not do such an analyses; we rather focus on the exposure of natural systems to drivers, intentionally omitting valued components and their responses (see answers to reviewer 1). We do not dispute the usefulness of the DPSIR framework; it has provided clarity and guidance for many case studies both in terrestrial and marine ecosystems, and could be used with the data-based indicators that we provide through the *eDrivers* initiative. We simply wish to avoid generating further confusion by articulating our work around a specific framework, or forcing categories on our layers that may change depending on a user's objective. As such, we propose the following modifications to the manuscript:
+> - However, we avoided categorizing drivers of environmental change using the DPSIR framework. While the framework is widely used globally, it has numerous shortcomings (*e.g.* Gari et al. 2015, 10.1016/j.ocecoaman.2014.11.013). Namely, the difficulties in properly defining the components of the framework, the unclear classification of exogenic or natural drivers like climate change, and the context-dependencies of framework categories. For example, Dempsey et al. (2018; 10.1016/j.ecolind.2016.12.011) found it more useful to classify drivers of change as exogenic or endogenic (see Elliot et al. 2011, 10.1016/j.marpolbul.2010.11.033) because the indicators they used could be classified differently depending on the context or ecosystem in which they were studied. As an example, hypoxic environments may be considered a state if the goal is to study the impacts of climate change on ecosystems, or a pressure if the goal is to study the impacts of climate change on benthic communities. Furthermore, the DPSIR framework is used to structure initiatives that evaluate the chain of causal links between driving forces and responses (Kristensen et al. 2014, National Environmental Research Institute, Denmark). We do not do such an analysis; we rather focus on the exposure of natural systems to drivers, intentionally omitting valued components and their responses (see answers to reviewer 1). We do not dispute the usefulness of the DPSIR framework; it has provided clarity and guidance for many case studies both in terrestrial and marine ecosystems, and could be used with the data-based indicators that we provide through the *eDrivers* initiative. We simply wish to avoid generating further confusion by articulating our work around a specific framework, or forcing categories on our layers that may change depending on a user's objective. As such, we propose the following modifications to the manuscript:
 
 > 1. We modified the definition in the introduction to: "*We broadly define drivers of environmental change (hereafter drivers) as any externality that affects environmental processes and disturbs natural systems*" (lines 84 to 87).
 
@@ -89,7 +89,7 @@ David Beauchesne
 
 > 4. We modified all instances of *environmental drivers* for *drivers of environmental change*
 
-> 5. We removed all mentions of *threat complexes* and *cumulative exposure regimes* in favour of *cumulative exposure profiles*, which, we feel, better captures our intent without adding unecessary terms. We also refer to *threat complexes* identified through the clustering approach as clusters.
+> 5. We removed all mentions of *threat complexes* and *cumulative exposure regimes* in favour of *cumulative exposure profiles*, which, we feel, better captures our intent without adding uncecessary terms. We also refer to *threat complexes* identified through the clustering approach as clusters.
 
 
 
@@ -113,7 +113,7 @@ David Beauchesne
 
 *Line 73 - How does the intensifying human footprint result in increasingly intricate environmental exposure regimes? I think this is confusing when you claim anthropogenic drivers as environmental drivers.*
 
-> - We mean that the expanding and intensifying human footprint results in drivers of change increasingly overlapping at higher intensities, which in turns creates more intricate exposure regimes. We modified the terminology used throughout the manuscsript and do not refer to drivers as "environmental drivers" anymore. We rather use the expression "drivers of environmental change" (see answer to question 2 for more details). We also simplified this sentence to: *As a result, the St. Lawrence System is exposed to an increasing number of drivers of environmental change, as is observed across ecosystems globally (see Halpern et al., 2015b; Halpern et al., 2019)* (lines 79 to 84).
+> - We mean that the expanding and intensifying human footprint results in drivers of change increasingly overlapping at higher intensities, which in turns creates more intricate exposure regimes. We modified the terminology used throughout the manuscript and do not refer to drivers as "environmental drivers" anymore. We rather use the expression "drivers of environmental change" (see answer to question 2 for more details). We also simplified this sentence to: *As a result, the St. Lawrence System is exposed to an increasing number of drivers of environmental change, as is observed across ecosystems globally (see Halpern et al., 2015b; Halpern et al., 2019)* (lines 79 to 84).
 
 
 
@@ -154,13 +154,13 @@ David Beauchesne
 
 *Line 177 - The sentence “We selected global data . . . ” feels like it needs more context. Are you saying all drivers in Table 1 were unavailable at the regional scale?*
 
-> - We mean that we used global datasets with sufficient resolution in instances where regional data on drivers were not available,. We modified the text to clarify this: *"Where regional data on drivers were unavailable, available global data at a resolution adequate for the scale of the St. Lawrence System were used instead (*e.g.* marine pollution)"* (lines 190 to 194).
+> - We mean that we used global datasets with sufficient resolution in instances where regional data on drivers were not available. We modified the text to clarify this: *"Where regional data on drivers were unavailable, available global data at a resolution adequate for the scale of the St. Lawrence System were used instead (*e.g.* marine pollution)"* (lines 190 to 194).
 
 *Line 192 - The figure of the hexagonal cells seems integral to the analysis and should be included in the main manuscript. Actually as I write this, I realize that the sentence reads 245k of 1 km2 hexagonal cells. My original reading was of much larger size cells. Perhaps rewording to say that the system was divided into a regular grid of 1 km2 hexagonal cells is sufficient. Also just an FYI that the hex cells are not shown in figure S2.*
 
 > - We modified the text accordingly: *"The St. Lawrence System was divided into a regular grid of 1 $km^2$ cells in which all drivers were integrated (Figure S2)"* (lines 209 to 212).
 
-> - As for the cells on figure S2, they are invisible due to the scale of the system. Showing cell borders hides fill colors, especially with so many maps shown on a single figure. We doubt whether it would be relevant to the manuscript, but, if requested, we could provde a finer scale view of the system and show the grid. Incidentally, we have since modified our grid for a grid with square cells, which allows us to work with rasters rather than vectorized polygons, which is more computationally efficient.
+> - As for the cells on figure S2, they are invisible due to the scale of the system. Showing cell borders hides fill colors, especially with so many maps shown on a single figure. We doubt whether it would be relevant to the manuscript, but, if requested, we could provide a finer scale view of the system and show the grid. Incidentally, we have since modified our grid for a grid with square cells, which allows us to work with rasters rather than vectorized polygons, which is more computationally efficient.
 
 
 *Section 3.3 - I fail to see what this section and subsequent results add to the study.*
@@ -251,7 +251,7 @@ David Beauchesne
 
 > 2. We now clearly state that this is an example provided for better clarity and that it serves as a stepping stone to the integrative indicators of exposure (lines 227 to 229).
 
-> 3. We removed the discussion on species-specific responses to hypoxia and fisheries. We intentionally avoid discussing valued components throughout the manuscript to focus specificaly on drivers. Discussing species responses in presenting the simplified example undoubtedly contributed to the example feeling out of place.
+> 3. We removed the discussion on species-specific responses to hypoxia and fisheries. We intentionally avoid discussing valued components throughout the manuscript to focus specifically on drivers. Discussing species responses in presenting the simplified example undoubtedly contributed to the example feeling out of place.
 
 > 4. We modified the figure caption to state that it is a simplified example.
 
