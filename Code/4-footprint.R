@@ -33,7 +33,7 @@ plot(st_geometry(egslSimple),
 
 # Legend
 legendEGSL(range = c(min(Fd), max(Fd)),
-           mainTitle = 'Cumulative footprint',
+           mainTitle = 'Cumulative exposure',
            subTitle = '',
            cexMain = .9,
            cexSub = .65,

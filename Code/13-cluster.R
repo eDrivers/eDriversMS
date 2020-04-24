@@ -1,3 +1,4 @@
+# source('Code/13-cluster.R')
 # ~~~~~~~~~~~~~~~~~~~ PARAMETERS ~~~~~~~~~~~~~~~~~~~ #
 source('./code/2-param.R')
 
@@ -26,8 +27,8 @@ dat[[6]] = data.frame(x = drInt2$X5_6)
 
 
 # ~~~~~~~~~~~~~~~~~~~ CLUSTER ~~~~~~~~~~~~~~~~~~~ #
-png('./figures/cluster.png', width = 1280, height = 1280, res = 300, pointsize = 6)
-# jpeg('./figures/cluster.jpg', width = 1280, height = 1280, res = 300, pointsize = 6)
+# png('./figures/cluster.png', width = 1280, height = 1280, res = 300, pointsize = 6)
+jpeg('./figures/cluster.jpg', width = 1280, height = 1280, res = 300, pointsize = 6)
 mat <- matrix(c(1,1,1,1,1,1,2,3,4,5,6,7), nrow = 2, byrow = T)
 layout(mat, heights = c(1, .4))
 cols <- pal(nCl)[clMed]
@@ -53,7 +54,7 @@ yH <- .022*yR
 xW <- .034*xR
 gap <- .034*xR
 gap2 <- .045*yR
-text(x = x[1]+gap, y = y[2]-gap, 'Threat complexes', adj = c(0,.5), font = 2)
+text(x = x[1]+gap, y = y[2]-gap, 'Clusters', adj = c(0,.5), font = 2)
 # Polygons
 for(i in 1:k) {
   xmn <- x[1]+gap+.014*xR
@@ -61,7 +62,7 @@ for(i in 1:k) {
   ymn <- y[2]-gap-i*gap2-yH/2
   ymx <- y[2]-gap-i*gap2+yH/2
   polygon(x = c(xmn, xmx, xmx, xmn), y = c(ymn,ymn,ymx,ymx), col = cols[i], lwd = .5)
-  text(x = xmx+.007*xR, y = mean(c(ymn,ymx)), labels = paste('Threat complex', i), cex = .6, adj = c(0, .5))
+  text(x = xmx+.007*xR, y = mean(c(ymn,ymx)), labels = paste('Cluster', i), cex = .6, adj = c(0, .5))
 }
 
 # Add citie
@@ -70,7 +71,7 @@ cityEGSL(prj = 4326)
 # barplots
 for(i in 1:6) {
   barPlot(dat[[i]])
-  mtext(paste0('Threat complex ', i), font = 2, cex = .75)
+  mtext(paste0('Cluster ', i), font = 2, cex = .75)
   mtext('Mean intensity', side = 1, cex = .5, at = .5, adj = c(.5,.5), line = 1)
 }
 dev.off()
