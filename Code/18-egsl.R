@@ -55,7 +55,7 @@ legendEGSL(range = c(0, 525),
            cexSub = .65,
            n = 6)
 
-colText <- '#717171'
+colText <- '#4b4b4b'
 
 city <- data.frame(latitude = numeric(0),
                    longitude = numeric(0),
@@ -116,8 +116,8 @@ text(y = 49.85, x = -62.25, labels = 'Anticosti Channel', srt = -15,col = colTex
 text(y = 49.85, x = -59, labels = 'Esquiman Channel', srt = 45,col = colText, cex = .8)
 text(y = 47.45, x = -63.25, labels = 'Magdalen\nShallows', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
 text(y = 47.55, x = -60.1 , labels = 'Cabot\nStrait', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
-text(y = 51.75, x = -56.25, labels = 'Belle-Isle\nStrait', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
-text(y = 51.75, x = -56.25, labels = 'Belle-Isle\nStrait', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
+text(y = 51.75, x = -56.25, labels = 'Strait of\nBelle Isle', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
+text(y = 51.75, x = -56.25, labels = 'Strait of\nBelle Isle', srt = 0,col = colText, cex = .8, adj = c(.5,.5))
 text(y = 46.6, x = -59.8, 'Prince Edward\nIsland', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
 text(y = 48.6, x = -58, 'Newfoundland', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
 text(y = 46.4, x = -67.75, 'New-Brunswick', srt = 0,col = colText, cex = 1, adj = c(0,.5), font = 2)
