@@ -1,6 +1,0 @@
-Cover Letter
-When you submit your manuscript, you will be required to add a cover letter directed to the Editor.
-
-Please indicate, in the first paragraph, the title of the manuscript, the article type, the Journal and specialty to which the manuscript is being submitted, and whether it is part of a Research Topic. You must also state that the manuscript has not been submitted for publication elsewhere; any closely related works submitted for consideration in other publications should be noted and you may be asked to provide a copy.
-
-It is essential as well that you provide a short description of the significance of the manuscript. While Frontiers evaluates articles using objective criteria, rather than impact or novelty, your cover letter should frame the question(s) you have addressed in your work in the context of the current body of knowledge, providing evidence that the findings - whether positive or negative - contribute to progress in your research discipline. This will assist the Chief Editors to determine whether your manuscript fits within the scope of a specialty as defined in its mission statement; a detailed cover letter will also facilitate the identification of the Editors and Reviewers most appropriate to evaluate your work, ultimately expediting your manuscript's initial consideration.
