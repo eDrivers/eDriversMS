@@ -11,7 +11,7 @@ parVal <- c(ceiling(nDr / 4), 4)
 source('./Code/Functions/plotEGSL.R')
 
 # ~~~~~~~~~~~~~~~~~~~ DRIVERS ~~~~~~~~~~~~~~~~~~~ #
-jpeg('./figures/drivers.jpeg', width = 1280, height = 1500, res = 200)
+jpeg('./figures/drivers.jpg', width = 1280, height = 1500, res = 200)
 par(mfrow = parVal, mar = c(4,4,1,1))
 # Drivers
 for(i in 1:nDr) {

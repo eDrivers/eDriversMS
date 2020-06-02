@@ -83,7 +83,7 @@ x <- x[!id]
 bin <- rbind(numeric(length(x)), bin)
 
 # ~~~~~~~~~~~~~~~~~~~ LAYOUT ~~~~~~~~~~~~~~~~~~~ #
-jpeg('./figures/marimekko.jpeg', width = 1800, height = 800, res = 200, pointsize = 8)
+jpeg('./figures/marimekko.jpg', width = 1800, height = 800, res = 200, pointsize = 8)
 mat <- matrix(ncol = 20, nrow = 10, data = 1)
 mat[, 10:17] <- 2
 mat[, 18:20] <- 3
